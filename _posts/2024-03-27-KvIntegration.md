@@ -2,7 +2,7 @@
 title: Integrate an Application Gateway with Azure Key Vault
 date: 2024-03-27 10:00:05 +/-TTTT
 categories: [Azure, Key Vault]
-tags: [dnskv, key, vault]     # TAG names should always be lowercase
+tags: [kv, key, vault, integrate]     # TAG names should always be lowercase
 ---
 
 ## Overview
@@ -42,10 +42,10 @@ AppGW > Settings > Listeners > Listener TLS certificates
 
 ## Uploading the Certificate to the Keyvault
 
-> [!IMPORTANT]
 >  - Azure sometimes complains silently about "#" and "$" characters in Certificate passwords, so avoid using those characters in your PFX passwords.
 >  - To upload a certificate to a Key Vault, it must have a password. If you download a Certificate from the Key Vault, it will not have a password.
 >  - As mentioned previously, ensure the SSL you are uploading includes the full chain of valid intermeddiate/CA certificates, or your certificate will not function correctly.
+{: .prompt-tip }
 
 ### For an Existing/Renewed Certificate.
 
@@ -58,12 +58,10 @@ This is how to add new SSL certificates for domains that already have SSLs in yo
 5. Provide the path to the cert, and password. The cert needs to be password protected and in .PFX format.
 6. From here there is nothing further to do, the AppGW will pickup the new SSL version within 4 hours.
 
-> [!TIP]
 > If you want to trigger the AppGW to pick up the renewed certificate immediately, for example if the existing SSL has already expired,  then you will need to make a change on the AppGW to trigger a config refresh.
->
 > Such as changing the polling period on a custom health probe, or response code. Something small that wont impact production but will trigger the AppGW to pull the latest SSL from the Key Vault.
->
 > There is no downtime when renewing existing SSL certificates.
+{: .prompt-tip }
 
 ### For Completely New Certificate.
 
@@ -94,8 +92,8 @@ This will be the identity which the AppGW will use to access the Keyvault to ret
 
 When you create the KV via the Portal, it suggests that RBAC is the preferred method for managing data plane access. I dont see any noteable advantages of using RBAC over Access Policies, when integrating AppGws to KVs. The access methods/roles are slightly more complicated though, when using RBAC, and something you need to be aware of.
 
-> [!NOTE]
 > Specifying Azure Key Vault certificates that are subject to the role-based access control permission model is not supported via the portal.
+{: .prompt-info }
 
 This means that adding a New Certifcate Object to the AppGW, that has RBAC access method enabled, is not supported via the portal. You need to use code to add it. Even though the Portal still has the option, it will fail on "_The Managed ID doesnt have access to the KV_" type error when trying to select the cert.
 
