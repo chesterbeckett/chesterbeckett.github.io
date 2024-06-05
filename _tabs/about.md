@@ -11,6 +11,6 @@ Putting out fires and making lives better.
 
 ## What You'll Find
 
-> Expert Troubleshooting Guides: Detailed troubleshooting steps for common and complex issues, helping you resolve problems quickly and efficiently.
-> How-To Tutorials: Easy-to-follow guides on setting up and managing Azure services, from virtual machines and databases to AI and machine learning.
-> Best Practices: Learn the best practices for deploying and managing resources in Azure, ensuring optimal performance, security, and cost management.
+- Expert Troubleshooting Guides: Detailed troubleshooting steps for common and complex issues, helping you resolve problems quickly and efficiently.
+- How-To Tutorials: Easy-to-follow guides on setting up and managing Azure services, from virtual machines and databases to AI and machine learning.
+- Best Practices: Learn the best practices for deploying and managing resources in Azure, ensuring optimal performance, security, and cost management.
