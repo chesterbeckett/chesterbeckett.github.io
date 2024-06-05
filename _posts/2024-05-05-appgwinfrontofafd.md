@@ -66,8 +66,9 @@ For the purposes of this document I used the default setup for AppGW/ Keyvault i
 | AzureLoadBalancer       | Any               | Any         | Any      | Allow  | This rule should exist already                                                                                                                          |
 | Internet                | Any               | Any         | Any      | Deny   | This will prevent anyone from bypassing AFD, make sure Priority is set below the above rules, or leave it out if you want to test the AppGW without AFD |
 
+![image](/assets/img/appgwinfrontofafd/img_2.png)
+
 >Optional: To further secure your config, [lock down acces to AppGW via a WAF Policy that allows the AFD ID](https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier)
-> ![image](/assets/img/appgwinfrontofafd/img_2.png)
 {: .prompt-tip }
 
 ## Application Gateway Config
