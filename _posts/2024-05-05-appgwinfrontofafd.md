@@ -58,10 +58,6 @@ For the purposes of this document I used the default setup for AppGW/ Keyvault i
   In this example, this is *uks-appgw.uksouth.cloudapp.azure.com*
 
 - If the AppGW Subnet has an NSG associated, which is should, you will need to add the [following rules to allow](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#inbound-rules) AFD and ensure the AppGW passes health probes:
-  * Source Service Tag: **GatewayManager** | Destination Ports: 65200-65535 | Destination: Any | Protocol: TCP | Action: Allow
-  * Source Service Tag: **AzureFrontDoor.Backend**  | Destination Ports: 80,443 | Destination: Any | Protocol: TCP | Action: Allow
-  * Source Service Tag: **AzureLoadBalancer** | Ports: Any | Destination: Any | Protocol: Any | Action: Allow (This rule should exist already)
-  * Source Service Tag: **Internet** | Destination Ports: 80,443 | Destination: Any | Protocol: Any | Action: Deny (This will prevent anyone from bypassing AFD, make sure Priority is set below the above rules, or leave it out if you want to test the AppGW without AFD)
 
 | Source Service Tag      | Destination Ports | Destination | Protocol | Action | Note                                                                                                                                                    |
 | :---------------------- | :---------------- | :---------- | :------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -70,9 +66,9 @@ For the purposes of this document I used the default setup for AppGW/ Keyvault i
 | AzureLoadBalancer       | Any               | Any         | Any      | Allow  | This rule should exist already                                                                                                                          |
 | Internet                | Any               | Any         | Any      | Deny   | This will prevent anyone from bypassing AFD, make sure Priority is set below the above rules, or leave it out if you want to test the AppGW without AFD |
 
-- Optional: To further secure your config, [lock down acces to AppGW via a WAF Policy that allows the AFD ID](https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier)
-
- ![image](/assets/img/appgwinfrontofafd/img_2.png)
+>Optional: To further secure your config, [lock down acces to AppGW via a WAF Policy that allows the AFD ID](https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier)
+> ![image](/assets/img/appgwinfrontofafd/img_2.png)
+{: .prompt-tip }
 
 ## Application Gateway Config
 
