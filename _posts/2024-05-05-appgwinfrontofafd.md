@@ -64,7 +64,7 @@ For the purposes of this document I used the default setup for AppGW/ Keyvault i
   * Source Service Tag: **Internet** | Destination Ports: 80,443 | Destination: Any | Protocol: Any | Action: Deny (This will prevent anyone from bypassing AFD, make sure Priority is set below the above rules, or leave it out if you want to test the AppGW without AFD)
 
 | Source Service Tag      | Destination Ports | Destination | Protocol | Action | Note                                                                                                                                                    |
-| :---------------------- | :---------------- | :---------- | :------- | :----- | ------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| :---------------------- | :---------------- | :---------- | :------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | GatewayManager          | 65200-65535       | Any         | TCP      | Allow  |                                                                                                                                                         |
 | AzureFrontDoor.Backend  | 80,443            | Any         | Any      | Allow  |                                                                                                                                                         |
 | AzureLoadBalancer       | Any               | Any         | Any      | Allow  | This rule should exist already                                                                                                                          |
