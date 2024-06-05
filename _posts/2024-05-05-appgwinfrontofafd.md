@@ -5,8 +5,6 @@ categories: [Azure, Front Door]
 tags: [azure, front, door, afd, appgw, application, gateway, frontdoor]     # TAG names should always be lowercase
 ---
 
-#
-
 As you may know, Azure does support putting Azure Front Door (AFD) in front of Application Gateways (AppGws). The config can get a little awry if you are not aware of the various components of the solution and specifically within AFD. While there is documentation on https://learn.microsoft.com/, it can be quite high level and ambiguous.
 
 In this article, I will go through the details to note when deploying something like this.
@@ -64,6 +62,14 @@ For the purposes of this document I used the default setup for AppGW/ Keyvault i
   * Source Service Tag: **AzureFrontDoor.Backend**  | Destination Ports: 80,443 | Destination: Any | Protocol: TCP | Action: Allow
   * Source Service Tag: **AzureLoadBalancer** | Ports: Any | Destination: Any | Protocol: Any | Action: Allow (This rule should exist already)
   * Source Service Tag: **Internet** | Destination Ports: 80,443 | Destination: Any | Protocol: Any | Action: Deny (This will prevent anyone from bypassing AFD, make sure Priority is set below the above rules, or leave it out if you want to test the AppGW without AFD)
+
+| Source Service Tag      | Destination Ports | Destination | Protocol | Action | Note                                                                                                                                                    |
+| :---------------------- | :---------------- | :---------- | :------- | :----- | ------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| GatewayManager          | 65200-65535       | Any         | TCP      | Allow  |                                                                                                                                                         |
+| AzureFrontDoor.Backend  | 80,443            | Any         | Any      | Allow  |                                                                                                                                                         |
+| AzureLoadBalancer       | Any               | Any         | Any      | Allow  | This rule should exist already                                                                                                                          |
+| Internet                | Any               | Any         | Any      | Deny   | This will prevent anyone from bypassing AFD, make sure Priority is set below the above rules, or leave it out if you want to test the AppGW without AFD |
+
 - Optional: To further secure your config, [lock down acces to AppGW via a WAF Policy that allows the AFD ID](https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier)
 
  ![image](/assets/img/appgwinfrontofafd/img_2.png)
