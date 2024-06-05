@@ -20,7 +20,7 @@ I had a requirement to set the query time frame to minimize the data set to filt
 
 Here is a suggestion on the format of using Time Windows in KQL:
 
-```kql
+```code
 // Gets the current year
 let currentYear = getyear(datetime(now));
 
