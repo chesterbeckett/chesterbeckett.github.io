@@ -38,7 +38,7 @@ let endDate = todatetime(strcat(currentYear,"-09-08 23:59:00"));
 
 Here is an example where the Storage Blog Logs are being queried, for the _PUTBLOCKLIST_ operation, for a given time frame:
 
-```kql
+```
 let currentYear = getyear(datetime(now));
 let startDate = todatetime(strcat(currentYear,"-09-01 00:00:00"));
 let endDate = todatetime(strcat(currentYear,"-09-08 23:59:00"));
