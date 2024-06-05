@@ -4,5 +4,6 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+I am a full time Azure Engineer, working in a support capacity for over 20 years. The last 6 years or so in Azure specifically.
+
+Putting out fires and making lives better.
