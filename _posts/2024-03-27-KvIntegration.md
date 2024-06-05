@@ -160,11 +160,10 @@ Follow this process when you are configuring a new HTTPS Listener on your AppGw.
 4. Give it a **Certificate Name**, I would advise using the same name as the Certificate name in the Key Vault (My example was _wildcard-domain-com_).
 5. Complete the remaining config as per your requirements. I usually set "**Listener Type**" to "**Multi Site**" and specifiy the domain hostname I am setting it up for, example: _www.domain.com_ or _test.domain.com_.
 
-> [!TIP]
 > To switch an existing Listener from AppGW Certificate to Key Vault Certificate
 > You can use the same method above to update an existing listener that previously had the certificate uploaded manually to the AppGW, by selecting "Renew or Edit Selected Certificate" option on the listener config.
->
 > Or you can choose the KV certificate which will appear in the drop down if it was previously added to another Listener previously. This is where logical naming conventions come into play, so that you easily select the correct certificate from the list.
+{: .prompt-tip }
 
 # Conclusion
 
