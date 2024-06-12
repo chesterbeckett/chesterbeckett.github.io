@@ -42,20 +42,20 @@ Enjoy with small toasts or crackers.
 
 Cook Livers, adding the garlic and thyme, step 4-7:
 
- ![image](/assets/img/chickepate/img_1.png)
+ ![image](/assets/img/chickenpate/img_1.png)
 
  Blend to taste/consistency:
 
- ![image](/assets/img/chickepate/img_2.png)
+ ![image](/assets/img/chickenpate/img_2.png)
 
  Topping up with melted butter step.12:
 
- ![image](/assets/img/chickepate/img_3.png)
+ ![image](/assets/img/chickenpate/img_3.png)
 
  Allow to cool:
 
- ![image](/assets/img/chickepate/img_4.png)
+ ![image](/assets/img/chickenpate/img_4.png)
 
-Serve it up:
+ Serve it up:
 
-![image](/assets/img/chickepate/img_5.png)
+ ![image](/assets/img/chickenpate/img_5.png)
