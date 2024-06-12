@@ -5,7 +5,7 @@ categories: [Kitchen, Paté]
 tags: [kitchen, chicken, liver, pate, paté]     # TAG names should always be lowercase
 ---
 
-I got this recipe from a good freind. It's a simple recipe that can quite possibly change your views on paté forever. Great for Christmas time!
+I got this recipe from a good friend. It's a simple recipe that can quite possibly change your views on paté forever. Great for Christmas time!
 
 # Ingredients
 
@@ -14,7 +14,7 @@ The volumes below makes a lot of paté, which i usually do for friends and famil
 - 400grams chicken livers
 - 5-6 Sweet onions, such as shallots or similar
 - 2 cloves of crushed garlic
-- 200grams of butter for the cook, and probably a load more for the finish (step 12).
+- 200grams of butter for the cook, and probably a load more for the finish (step 12)
 - Half pack streaky bacon
 - 2 tablespoons of fresh lemon thyme (leaves picked from the stalk)
 - Teaspoon celery salt
