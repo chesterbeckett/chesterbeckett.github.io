@@ -59,3 +59,5 @@ Cook Livers, adding the garlic and thyme, step 4-7:
  Serve it up:
 
  ![image](/assets/img/chickenpate/img_5.png)
+
+ Test
