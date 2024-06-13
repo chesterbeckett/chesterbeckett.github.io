@@ -40,7 +40,7 @@ Once the butter has solidified the paté is good to go. I usually cover the dish
 
 Enjoy with small toasts or crackers.
 
-Cook Livers, adding the garlic and thyme, step 4-7:
+Cook the Livers, adding the garlic and thyme, step 4-7:
 
  ![image](/assets/img/chickenpate/img_1.png)
 
