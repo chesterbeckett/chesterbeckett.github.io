@@ -19,7 +19,7 @@ The volumes below makes a lot of paté, which i usually do for friends and famil
 - 2 tablespoons of fresh lemon thyme (leaves picked from the stalk)
 - Teaspoon celery salt
 - 3 shots of cream
-- A lot of sherry (Dark preferably)
+- A lot of Sherry (Dark preferably)
 
 # Steps
 
