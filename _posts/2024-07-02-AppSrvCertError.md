@@ -1,11 +1,11 @@
 ---
 title: Error When Uploading a Cert to a Web App
-date: 2024-07-02 08:57:05 +/-TTTT
+date: 2024-07-02 12:42:05 +/-TTTT
 categories: [Azure, SSL]
-tags: [webapp, appservice, certs, error, pfx, ssl]     # TAG names should always be lowercase
+tags: [webapp, appservice, certs, error, pfx, ssl, certificate]     # TAG names should always be lowercase
 ---
 
-# Scenario
+## Scenario
 
 Trying to upload a certificate to your Web App fails, with the following error:
 
@@ -20,7 +20,7 @@ I was able to replicate this issue on two totally seperate environments, both on
 
 Or could just be Az Portal gremlins.
 
-# Check Your Certificate Against the Web App Requirements
+## Check Your Certificate Against the Web App Requirements
 
 If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
@@ -36,12 +36,12 @@ If you choose to upload or import a private certificate to App Service, your cer
 
 - [Microsoft Reference - Private certificate requirements](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate?tabs=apex#private-certificate-requirements)
 
-# Resolution
+## Resolution
 
 Easy way to fix this is to re-encrypt the certificate, using Powershell on a Windows machine.
 
 > - You can import the Certificate into Windows with or without a password, but when you export it, it will need a password to upload to Azure.
-> - Do not include the following special characters in your password, I have seen them cause issues with Azure before '$' '&' '#'
+> - Do not include the following special characters in your password, I have seen them cause issues with Azure before '$' '&' '#' '%'
 {: .prompt-tip }
 
 ### Import the certificate into Windows
