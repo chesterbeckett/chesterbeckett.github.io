@@ -1,7 +1,7 @@
 ---
 title: Error When Uploading a Cert to a Web App
 date: 2024-07-02 08:57:05 +/-TTTT
-categories: [Azure, WebApp, SSL]
+categories: [Azure, SSL]
 tags: [webapp, appservice, certs, error, pfx, ssl]     # TAG names should always be lowercase
 ---
 
