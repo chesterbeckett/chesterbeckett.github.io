@@ -40,7 +40,8 @@ If you choose to upload or import a private certificate to App Service, your cer
 
 Easy way to fix this is to re-encrypt the certificate, using Powershell on a Windows machine.
 
-> You can import the Certificate into Windows with or without a password, but when you export it, it will need a password to upload to Azure.
+> - You can import the Certificate into Windows with or without a password, but when you export it, it will need a password to upload to Azure.
+> - Do not include the following special characters in your password, I have seen them cause issues with Azure before '$' '&' '#'
 {: .prompt-tip }
 
 ### Import the certificate into Windows
