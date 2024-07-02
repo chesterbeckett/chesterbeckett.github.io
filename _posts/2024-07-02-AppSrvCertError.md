@@ -9,7 +9,7 @@ tags: [webapp, appservice, certs, error, pfx, ssl, certificate]     # TAG names 
 
 Trying to upload a certificate to your Web App fails, with the following error:
 
-> "At least one Certificate is not valid (Certificate failed validation because it could not be loaded)"
+> "Error adding private key certificate: At least one Certificate is not valid (Certificate failed validation because it could not be loaded)"
 {: .prompt-warning }
 
  ![image](/assets/img/appsrvcerterror/img_1.png)
