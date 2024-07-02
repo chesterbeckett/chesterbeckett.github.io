@@ -29,7 +29,7 @@ If you choose to upload or import a private certificate to App Service, your cer
 > After you add a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system combination, internally called a webspace. That way, the certificate is accessible to other apps in the same resource group, region, and OS combination. Private certificates uploaded or imported to App Service are shared with App Services in the same deployment unit.
 >
 > You can add up to 1000 private certificates per webspace.
-{: .prompt-note }
+{: .prompt-info }
 
 
 - [Microsoft Reference - Private certificate requirements](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate?tabs=apex#private-certificate-requirements)
@@ -39,7 +39,7 @@ If you choose to upload or import a private certificate to App Service, your cer
 Easy way to fix this is to re-encrypt the certificate, using Powershell on a Windows machine.
 
 > You can import the Certificate into Windows with or without a password, but when you export it, it will need a password to upload to Azure.
-{: .prompt-note }
+{: .prompt-tip }
 
 ### Import the certificate into Windows
 
