@@ -22,7 +22,7 @@ Or could just be Az Portal gremlins.
 
 ## Check Your Certificate Against the Web App Requirements
 
-If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
+If you choose to upload or import a private certificate to a Web App, your certificate must meet the following requirements:
 
 - Exported as a password-protected PFX file, encrypted using triple DES.
 - Contains private key at least 2048 bits long
