@@ -63,7 +63,7 @@ If the import is successful, the PS Output will include the Certificate Thumbpri
 $exportpath = "c:\certs\wildcard.domain.co.uk.pfx"
 
 # Ensure the certificate has a password.
-$exportpwd = "plain text password here"
+$exportpwd = "plaintext password here"
 
 # Imported Cert Thumbprint
 $exportthumb = "thumprint goes here"
