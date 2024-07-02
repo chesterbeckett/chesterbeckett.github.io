@@ -14,7 +14,7 @@ Trying to upload a certificate to your Web App fails, with the following error:
 
  ![image](/assets/img/appsrvcerterror/img_1.png)
 
-The scenario I saw this on was a .Net Web App, and in this case, specifically Asp.Net v4.8.
+The scenario I saw this on was with a .Net Web App, and in this case, specifically Asp.Net v4.8.
 
 I was able to replicate this issue on two totally seperate environments, both on .NET. Interestingly though, I tried reproducing this issue on a PHP Web App, and it never had the same error initially, the certificate uploaded ok. Later on, I managed to get the same error on a PHP Web App, so consistency seems to be an issue here.
 
