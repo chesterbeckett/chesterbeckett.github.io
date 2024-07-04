@@ -83,3 +83,5 @@ If you want automatic Web App Instance restarts, check out Web App [Health Check
 {: .prompt-info }
 
 [Microsoft Reference - What App Service (Web App) does with Health checks](https://learn.microsoft.com/en-us/azure/app-service/monitor-instances-health-check?tabs=dotnet#what-app-service-does-with-health-checks)
+
+<a href="https://learn.microsoft.com/en-us/azure/app-service/monitor-instances-health-check?tabs=dotnet#what-app-service-does-with-health-checks" target="_blank">Microsoft Reference - What App Service (Web App) does with Health checks</a>
