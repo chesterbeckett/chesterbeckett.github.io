@@ -136,7 +136,7 @@ e.g *test.domain.com* CNAME TO *test-domain-com-ep-czb4fwasccg2rgd3.a01.azurefd.
 
 An origin group (OG) is a set of origins to which Front Door load balances your client requests. Think of it as a Backend Pool. Typically you will have multiple Origins, from different regions, within your OG.
 
-<a href="https://learn.microsoft.com/en-us/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-group" target="_blank">Origin Group</a>
+Microsoft's definition of an **Origin Group** is detailed in <a href="https://learn.microsoft.com/en-us/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-group" target="_blank">this article</a>.
 
 For this document, the OG is called *test-domain-com-og*. Contained within is my Origin, which is the AppGW.
 
@@ -144,14 +144,16 @@ For this document, the OG is called *test-domain-com-og*. Contained within is my
 
 This references the source resource/place that your content. Origins are the application servers/resources where Front Door will route your client requests. The devices that actually have access to the content, in this case, for test.domain.com it will be the AppGW. Think of this as the members of your Backend Pool.
 
-[Origin](https://learn.microsoft.com/en-us/azure/frontdoor/origin?pivots=front-door-standard-premium#origin)
+Microsoft's definition of an **Origin** is detailed in <a href="https://learn.microsoft.com/en-us/azure/frontdoor/origin?pivots=front-door-standard-premium#origin" target="_blank">this article</a>.
 
 > For this POC, the Origin is my AppGW. To reference the AppGW in the Origin, we need Origin Host Name (A DNS resolveable name) and Host Header:
 >   - **Origin Host Name:** The Origin Host Name comes into play when adding Origins into an Origin Group. This can be either a Public IP or a "Name" of the Origin Device. Note: The name must be resolvable from Public DNS. They are really looking for a public name that resolves to the resource (AppGW/AppService/etc) that is serving your app (test.domain.com), not your app.
 >   - **Host Header:** The Host Header is the URL of your Application that you are sending to AFD, in this case test.domain.com.
 {: .prompt-tip }
 
-> ### Origin Host Name
+### Origin Host Name
+
+> Take note here, this section is detailed but vital to the success of your config
 {: .prompt-info }
 
 In an AFD scenario, this is the component that will trip most people up, because of the confusion in documentation/assumptions made. This I found is largely to do with the UI behaviour and the lack of precise information around the terms and methods being used by AFD/The Portal.
