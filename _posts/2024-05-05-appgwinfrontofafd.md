@@ -1,5 +1,5 @@
 ---
-title: Using Azure Front Door in front of Application Gateways.
+title: Using Azure Front Door in front of Application Gateways
 date: 2024-05-05 14:12:05 +/-TTTT
 categories: [Azure, Front Door]
 tags: [azure, front, door, afd, appgw, application, gateway, frontdoor]     # TAG names should always be lowercase

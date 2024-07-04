@@ -14,6 +14,7 @@ This option from the _Web App > Overview_ page will restart **ALL** the Web App 
 - Comparable to an _IISRESET_ command you would run on Windows.
 - Expect downtime, HTTP 503's etc. This will take down the Web App for the duration of the restart, which means a cold start of the app and re-initialization if you have Application Initialization enabled.
 - This includes the Kudu Process.
+- Same Instance remains i.e Instance ID doesnt change.
 
 ![image](/assets/img/webapprestart/img_1.png)
 
@@ -24,6 +25,7 @@ Form the Web App, under _Diagnose and solve problems_, we have the **Advanced Ap
 - Comparable to an Application Pool Recycle in IIS. Contrary to what is states in the portal, this is a recycle not a restart/IISRESET operation.
 - Partial impact, not completely down.
 - Doesnt include Kudu Process.
+- Same Instance remains i.e Instance ID doesnt change.
 - Any new requests coming into the Web App will be directed to another instance, if another exists.
 - If the Local Cache option is enabled on the Web App, this will not update the cache, you can only do that with the Web App restart operation above.
 
