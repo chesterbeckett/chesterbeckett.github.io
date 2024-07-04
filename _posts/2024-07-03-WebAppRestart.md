@@ -64,7 +64,7 @@ Invoke-AzResourceAction `
 
 ## Health Check Restarts
 
-If you want automatic Web App Instance restarts, check out Web App [Health Checks](https://learn.microsoft.com/en-us/azure/app-service/monitor-instances-health-check?tabs=dotnet).
+If you want automatic Web App Instance restarts, check out <a href="https://learn.microsoft.com/en-us/azure/app-service/monitor-instances-health-check?tabs=dotnet" target="_blank">Web App health checks</a>.
 
 - Enabling Health Check on your Web App will restart the Web App.
 - As part of the Health Check functionality, it will attempt various things, including instance restarts to return your App/an Instance to a working state.
@@ -81,7 +81,5 @@ If you want automatic Web App Instance restarts, check out Web App [Health Check
 > At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
 > If your health check is giving the status Waiting for health check response then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have HTTPS Only disabled.
 {: .prompt-info }
-
-[Microsoft Reference - What App Service (Web App) does with Health checks](https://learn.microsoft.com/en-us/azure/app-service/monitor-instances-health-check?tabs=dotnet#what-app-service-does-with-health-checks)
 
 <a href="https://learn.microsoft.com/en-us/azure/app-service/monitor-instances-health-check?tabs=dotnet#what-app-service-does-with-health-checks" target="_blank">Microsoft Reference - What App Service (Web App) does with Health checks</a>
