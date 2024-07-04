@@ -33,8 +33,7 @@ If you choose to upload or import a private certificate to a Web App, your certi
 > You can add up to 1000 private certificates per webspace.
 {: .prompt-info }
 
-
-- [Microsoft Reference - Private certificate requirements](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate?tabs=apex#private-certificate-requirements)
+- <a href="https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate?tabs=apex#private-certificate-requirements" target="_blank">Microsoft Reference - Private certificate requirements</a>
 
 ## Resolution
 
