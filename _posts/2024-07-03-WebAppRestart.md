@@ -5,14 +5,14 @@ categories: [Azure, Web App]
 tags: [web app, app service, instance, restart, health, check]     # TAG names should always be lowercase
 ---
 
-There are a few ways to seemingly "restart" a Web App (Windows) in Azure. Not all of them are equal, or necassarily doing what you think they are doing. In this post, I detail out some of the more popular methods.
+There are a few ways to seemingly "restart" a Web App (Windows) in Azure. Not all of them are equal, or necassarily doing what you think they are doing. In this post, I detail out some of the more common methods.
 
 ## Hitting Restart on the Web App Overview Page.
 
-This option from the Overview page of the AS will restart ALL the Web App instances and their processes, but not other Web Apps on the App Service Plan.
+This option from the _Web App > Overview_ page will restart **ALL** the Web App instances and their underlying processes, but not other Web Apps on the App Service Plan.
 
-- Comparable to an IISRESET in Windows.
-- Expect downtime, HTTP 503's etc.
+- Comparable to an _IISRESET_ command you would run on Windows.
+- Expect downtime, HTTP 503's etc. This will take down the Web App for the duration of the restart, which means a cold start of the app and re-initialization if you have Application Initialization enabled.
 - This includes the Kudu Process.
 
 ![image](/assets/img/webapprestart/img_1.png)
@@ -23,6 +23,7 @@ Form the Web App, under _Diagnose and solve problems_, we have the **Advanced Ap
 
 - Comparable to an Application Pool Recycle in IIS. Contrary to what is states in the portal, this is a recycle not a restart/IISRESET operation.
 - Partial impact, not completely down.
+- Doesnt include Kudu Process.
 - Any new requests coming into the Web App will be directed to another instance, if another exists.
 - If the Local Cache option is enabled on the Web App, this will not update the cache, you can only do that with the Web App restart operation above.
 
