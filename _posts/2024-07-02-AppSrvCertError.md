@@ -2,7 +2,7 @@
 title: Error When Uploading a Cert to a Web App
 date: 2024-07-02 12:42:05 +/-TTTT
 categories: [Azure, SSL]
-tags: [webapp, appservice, certs, error, pfx, ssl, certificate]     # TAG names should always be lowercase
+tags: [azure, webapp, appservice, certs, error, pfx, ssl, certificate]     # TAG names should always be lowercase
 ---
 
 ## Scenario
