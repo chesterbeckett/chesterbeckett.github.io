@@ -2,7 +2,7 @@
 title: Setting a Static Time Window in KQL
 date: 2024-02-16 13:12:05 +/-TTTT
 categories: [Azure, KQL]
-tags: [kql, time, query, log, analytics]     # TAG names should always be lowercase
+tags: [azure, kql, time, query, log, analytics]     # TAG names should always be lowercase
 ---
 
 I had a requirement to set the query time frame to minimize the data set to filter on. Due to a requirement to setup an alert that checks for a yearly log entry.
