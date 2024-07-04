@@ -5,7 +5,7 @@ categories: [Azure, Front Door]
 tags: [azure, front, door, afd, appgw, application, gateway, frontdoor]     # TAG names should always be lowercase
 ---
 
-As you may know, Azure does support putting Azure Front Door (AFD) in front of Application Gateways (AppGws). The config can get a little awry if you are not aware of the various components of the solution and specifically within AFD. While there is documentation on https://learn.microsoft.com/, it can be quite high level and ambiguous.
+As you may know, Azure does support putting Azure Front Door (AFD) in front of Application Gateways (AppGws). The config can get a little awry if you are not aware of the various components of the solution and specifically within AFD. While there is documentation on <a href="https://learn.microsoft.com" target="_blank">https://learn.microsoft.com</a>, it can be quite high level and ambiguous.
 
 In this article, I will go through the details to note when deploying something like this.
 
@@ -18,12 +18,12 @@ Application Gateway behind Front Door is useful in these situations:
 - You want to offload all the TLS/SSL processing and use only HTTP requests in your virtual network. Application Gateway behind Front Door can achieve this setup.
 - You want to use session affinity at both the regional and the server level. Front Door can send the traffic from a user session to the same backend in a region, but Application Gateway can send it to the same server in the backend.
 
-[Front Door FAQ](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-faq)
+<a href="https://learn.microsoft.com/en-us/azure/frontdoor/front-door-faq" target="_blank">Front Door FAQ</a>
 
 # Setup Components
 
 - URL with DNS Management (domain.com with DNS Zone hosted in the same subscription)
-- Azure Front Door Standard/Premium. [Front Door Classic is being deprecated in March 2027](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/)
+- Azure Front Door Standard/Premium. <a href="https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/" target="_blank">Front Door Classic is being deprecated in March 2027</a>.
 - Application Gateway Tier: WAF V2
 - KeyVault(s) with Certificate
   * For the AppGWs they would need a KV in the same region as the AppGW(s), so you would have multiples in a Prod environment.
@@ -46,7 +46,7 @@ For the purposes of this document, I spun up an AppGW in UKS, using two listener
 
 ## AppGW Prerequisites/Assumptions
 
-For the purposes of this document I used the default setup for AppGW/ Keyvault integration, the details of which are [here](https://learn.microsoft.com/en-us/azure/application-gateway/key-vault-certs).
+For the purposes of this document I used the default setup for AppGW/ Keyvault integration, the details of which are <a href="https://learn.microsoft.com/en-us/azure/application-gateway/key-vault-certs" target="_blank">here</a>.
 
 - I used a Windows VM in the *test.domain.com-bepool* AppGW Backend Pool, which was setup with IIS, a 443 binding attached to the hostname (*test.domain.com*) with the SSL cert, and SNI enabled. Also consider the VMs NSG rules need to allow the AppGW inbound on 443.
 - AppGW is already integrated to the KV for SSL Certificate.
@@ -57,7 +57,7 @@ For the purposes of this document I used the default setup for AppGW/ Keyvault i
 
   In this example, this is *uks-appgw.uksouth.cloudapp.azure.com*
 
-- If the AppGW Subnet has an NSG associated, which is should, you will need to add the [following rules to allow](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#inbound-rules) AFD and ensure the AppGW passes health probes:
+- If the AppGW Subnet has an NSG associated, which is should, you will need to add the <a href="https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#inbound-rules" target="_blank">following rules to allow</a> AFD and ensure the AppGW passes health probes:
 
 | Source Service Tag      | Destination Ports | Destination | Protocol | Action | Note                                                                                                                                                    |
 | :---------------------- | :---------------- | :---------- | :------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -68,7 +68,7 @@ For the purposes of this document I used the default setup for AppGW/ Keyvault i
 
 ![image](/assets/img/appgwinfrontofafd/img_2.png)
 
->Optional: To further secure your config, [lock down acces to AppGW via a WAF Policy that allows the AFD ID](https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier)
+>Optional: To further secure your config, <a href="https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier" target="_blank">lock down acces to AppGW via a WAF Policy that allows the AFD ID</a>.
 {: .prompt-tip }
 
 ## Application Gateway Config
@@ -106,19 +106,19 @@ With all that setup/in-place. You should have a working AppGW > VM scenario that
 It's vital that you understand the key components of AFD correctly. It will make or break your config and your ultimate success with AFD. While there is documetation on these components, they are somewhat ambiguos and high level. They do not go into detail for each set.
 
 **Pricing Tier:** For most scenarios, Standard should suffice. But key features to use Premium would be: *Managed WAF Rule Sets* | *Bot Protection* | *Private Link Origins*.
-  - [AFD Service Comparison Chart](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-cdn-comparison#service-comparison)
+  - <a href="https://learn.microsoft.com/en-us/azure/frontdoor/front-door-cdn-comparison#service-comparison" target="_blank">AFD Service Comparison Chart</a>
 
 ### Front Door Profile
 
 The name of the Instance of Front Door. Purely the Resource Name, outside of this its not referenced in any way in the routing of your app/dns/config at all.
 
 ### Domains / Secrets
-- **Secrets:** This is where you add your custom Cert to AFD, via Keyvault. First you will need to [configure KV access](https://learn.microsoft.com/en-us/azure/frontdoor/managed-identity#configure-key-vault-access).
-- **Domains:** [Add your Custom Domain(s) to AFD](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-add-custom-domain) before creating your rules.
+- **Secrets:** This is where you add your custom Cert to AFD, via Keyvault. First you will need to <a href="https://learn.microsoft.com/en-us/azure/frontdoor/managed-identity#configure-key-vault-access" target="_blank">configure KV access</a>.
+- **Domains:** <a href="https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-add-custom-domain" target="_blank">Add your Custom Domain(s) to AFD</a> before creating your rules.
 
 The Unique ID that references a single AFD Profile. This ID is required when you need to secure traffic between AFD and your Origins, As AFD IPs are shared resources.
 
-See more on that [here.](https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier)
+See more on that <a href="https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier" target="_blank">here.</a>
 
 ![image](/assets/img/appgwinfrontofafd/img_11.png)
 
@@ -130,13 +130,13 @@ So in DNS for *test.domain.com* CNAME TO *AFD Endpoint Name*
 
 e.g *test.domain.com* CNAME TO *test-domain-com-ep-czb4fwasccg2rgd3.a01.azurefd.net*
 
-[Endpoints in Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/endpoint)
+- <a href="https://learn.microsoft.com/en-us/azure/frontdoor/endpoint" target="_blank">Endpoints in Azure Front Door</a>.
 
 ### Origin Groups
 
 An origin group (OG) is a set of origins to which Front Door load balances your client requests. Think of it as a Backend Pool. Typically you will have multiple Origins, from different regions, within your OG.
 
-[Origin Group](https://learn.microsoft.com/en-us/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-group)
+<a href="https://learn.microsoft.com/en-us/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-group" target="_blank">Origin Group</a>
 
 For this document, the OG is called *test-domain-com-og*. Contained within is my Origin, which is the AppGW.
 
@@ -210,16 +210,16 @@ So this is roughly how it translates:
 
 ## Related Links
 
-- [AFD FAQ](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-faq)
+- <a href="https://learn.microsoft.com/en-us/azure/frontdoor/front-door-faq" target="_blank">AFD FAQ</a>
 
-- [AFD Tier Comparison](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-cdn-comparison#service-comparison)
+- <a href="https://learn.microsoft.com/en-us/azure/frontdoor/front-door-cdn-comparison#service-comparison" target="_blank">AFD Tier Comparison</a>
 
-- [AFD Key Vault Access](https://learn.microsoft.com/en-us/azure/frontdoor/managed-identity#configure-key-vault-access)
+- <a href="https://learn.microsoft.com/en-us/azure/frontdoor/managed-identity#configure-key-vault-access" target="_blank">AFD Key Vault Access</a>
 
-- [Adding a Custom Domain to AFD](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-add-custom-domain)
+- <a href="https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-add-custom-domain" target="_blank">Adding a Custom Domain to AFD</a>
 
-- [AFD Origin Groups](https://learn.microsoft.com/en-us/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-group)
+- <a href="https://learn.microsoft.com/en-us/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-group" target="_blank">AFD Origin Groups</a>
 
-- [AFD ID](https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier)
+- <a href="https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier" target="_blank">AFD ID</a>
 
-- [AFD Classic Retirement notice](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027)
+- <a href="https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027" target="_blank">AFD Classic Retirement notice</a>
