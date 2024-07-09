@@ -14,7 +14,7 @@ I had a requirement to set the query time frame to minimize the data set to filt
 
 ![image](/assets/img/statictimekql/img_1.png)
 
-[Reference article on this point](https://learn.microsoft.com/en-gb/azure/azure-monitor/logs/query-optimization#time-span-of-the-processed-query)
+<a href="https://learn.microsoft.com/en-gb/azure/azure-monitor/logs/query-optimization#time-span-of-the-processed-query" target="_blank">Reference article on this point</a>
 
 ## KQL
 
