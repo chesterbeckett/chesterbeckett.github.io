@@ -5,7 +5,7 @@ order: 4
 ---
 I am a full time Cloud Engineer, working in a support environment for over 20 years. The last 6 years or so have been dedicated to Azure Support specifically.
 
-This resource is aimed at navigating and mastering various areas of Microsoft Azure. I hope to provide dedicated and in-depth articles, step-by-step tutorials, and expert tips designed to help both novice and experienced users optimize their Azure experience through real world experiences and troubleshooting.
+This resource is aimed at navigating and mastering various areas of Microsoft Azure. I hope to provide dedicated and in-depth articles, step-by-step tutorials, and expert tips designed to help both novice and experienced users optimize their Azure knowledge through my real world experience and troubleshooting.
 
 Putting out fires and making lives better.
 
