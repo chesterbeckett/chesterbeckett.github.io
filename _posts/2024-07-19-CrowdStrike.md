@@ -48,13 +48,11 @@ Pre-requisites for this method require:
 3. Attach new disk to Staging VM.
 4. Logon to Staging VM.
 5. Use Disk Manager to "Online" the disk if its not online already.
-
-![image](/assets/img/crowdstrike/img_1.png)
-
-6. Remove all `C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys` files.
-7. Detach new disk from Staging VM.
-8. Go to effected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
-9. Boot affected server.
+6. ![image](/assets/img/crowdstrike/img_1.png)
+7. Remove all `C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys` files.
+8. Detach new disk from Staging VM.
+9. Go to effected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
+10. Boot affected server.
 
 ### Steps (Azure Portal) for V2 VMs:
 
