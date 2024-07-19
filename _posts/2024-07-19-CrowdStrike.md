@@ -103,9 +103,9 @@ Pre-requisites for this method require:
     2.  In Line 1, Device Partition Drive letter matches letter from step 10.
     3.  In Line 5, Device letter matches letter from step 14.
     4.  In Line 11, Device letter matches letter from step 14.
-    5.  Replace ***%Boot Load Identifier%*** with your Identifier from step 17.
+    5.  Replace **%Boot Load Identifier%** with your Identifier from step 17.
 
-``` bash
+``` powershell
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
 
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} integrityservices enable
