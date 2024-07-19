@@ -105,18 +105,21 @@ Pre-requisites for this method require:
     4.  In Line 11, Device letter matches letter from step 14.
     5.  Replace `%Boot Load Identifier%` with your Identifier from step 17.
 
-```
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
+``` powershell
+# Get your Managed Identity
+$spId = Get-AzADServicePrincipal -DisplayName $name | Select Id
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} integrityservices enable
+# If you have a few Key Vaults to manage use the line below, otherwise specify -VaultName and -ResourceGroupName parameters for a single Key Vault.
+$kvs = get-azkeyvault
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} device partition=E:
+# Set permissions/access to each Keyvault store (Cert/Key/Secret)
+# See full details for each set https://docs.microsoft.com/en-us/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-7.1.0#parameters
+$ptc = "get","list"
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} integrityservices enable
-
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} recoveryenabled Off
-
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} osdevice partition=E:
-
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} bootstatuspolicy IgnoreAllFailures
+# Loop through each Keyvault and add a policy for the Managed Identity.
+foreach ($kv in $kvs) {
+    foreach ($spId in $spIds) {
+        Set-AzKeyVaultAccessPolicy -VaultName $kv.VaultName -ObjectId $spId.Id -PermissionsToCertificates $ptc
+    }
+}
 ```
