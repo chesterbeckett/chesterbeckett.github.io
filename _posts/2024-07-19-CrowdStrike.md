@@ -1,6 +1,6 @@
 ---
 title: CrowdStrike VM Mitigation
-date: 2024-07-19 12:42:05 +/-TTTT
+date: 2024-07-19 10:42:05 +/-TTTT
 categories: [Azure, VMs]
 tags: [azure, vms, crowdstrike, bsod, loop, boot, restart] # TAG names should always be lowercase
 ---
@@ -35,7 +35,7 @@ This option is not recommended for Domain Controllers or Database workloads.
 ### Option 2 - Repair OS Disk
 
 > Method Works for Gen V1 and V2 VMs, but V2 VMs require additional steps noted below.
-{: .prompt-warning }
+{: .prompt-info }
 
 Pre-requisites for this method require:
 - Staging resources (VM/Disks) need to be created in the same Region and Availability Zone as the affected VM.
