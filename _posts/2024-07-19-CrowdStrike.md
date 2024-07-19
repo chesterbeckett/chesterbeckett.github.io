@@ -104,3 +104,19 @@ Pre-requisites for this method require:
     3.  In Line 5, Device letter matches letter from step 14.
     4.  In Line 11, Device letter matches letter from step 14.
     5.  Replace `%Boot Load Identifier%` with your Identifier from step 17.
+
+```bash
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
+
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} integrityservices enable
+
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} device partition=E:
+
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} integrityservices enable
+
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} recoveryenabled Off
+
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} osdevice partition=E:
+
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} bootstatuspolicy IgnoreAllFailures
+```
