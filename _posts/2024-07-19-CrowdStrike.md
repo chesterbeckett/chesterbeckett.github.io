@@ -95,9 +95,7 @@ Pre-requisites for this method require:
 
 16. Open a command prompt and run the command.
 17. Copy the Windows Boot Load Identifier from the output (This example: `3a615177-24a5-11ef-8404-002248498060`):
-
 ![image](/assets/img/crowdstrike/img_7.png)
-
 18. Update the following scripts with the info:
     1.  Set all the paths to your bcd
     2.  In Line 1, Device Partition Drive letter matches letter from step 10.
