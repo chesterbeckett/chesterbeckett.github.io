@@ -79,6 +79,7 @@ Pre-requisites for this method require:
 19. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`. See the pic from step 9, Windows Partition is on `E:`.
 20. With the information from step 13, update the following command:
     > `bcdedit /store %Drive and Path from step13% /enum /v`
+    >
     > For this example: `bcdedit /store B:\EFI\Microsoft\Boot\bcd /enum /v`
 21. Open a command prompt and run the command.
 22. Copy the Windows Boot Load Identifier from the output (This example: `3a615177-24a5-11ef-8404-002248498060`)
