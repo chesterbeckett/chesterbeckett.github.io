@@ -28,7 +28,7 @@ There are a number of scenarios that may apply given the VM type.
 {: .prompt-info }
 
 ### Option 1 - Restore VM from backup
-If the VM is used for relatively static workloads and has valid backups, its recommended that you restore from a backup from before 04:09 UTC on the 18th of July.
+If the VM is used for relatively static workloads and has valid backups, its recommended that you restore from a backup from before 19:09 UTC on the 18th of July.
 
 This option is not recommended for Domain Controllers or Database workloads.
 
