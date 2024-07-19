@@ -23,8 +23,6 @@ There are a number of scenarios that may apply given the VM type.
 > The faulty file may still be present after restore, but CS appears to have replaced it with a non-busted version:
 >
 > <a href="https://www.crowdstrike.com/blog/statement-on-falcon-content-update-for-windows-hosts/" target="_blank">Statement on Falcon Content Update for Windows Hosts</a>
-> - Channel file "C-00000291*.sys" with timestamp of 0527 UTC or later is the reverted (good) version.
-> - Channel file "C-00000291*.sys" with timestamp of 0409 UTC is the problematic version.
 {: .prompt-info }
 
 ### Option 1 - Restore VM from backup
