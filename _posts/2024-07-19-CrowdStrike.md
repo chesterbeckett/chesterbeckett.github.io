@@ -35,7 +35,7 @@ This option is not recommended for Domain Controllers or Database workloads.
 ### Option 2 - Repair OS Disk
 
 > Method Works for Gen V1 and V2 VMs, but V2 VMs require additional steps noted below.
-{: .prompt-info }
+{: .prompt-warning }
 
 Pre-requisites for this method require:
 - Staging resources (VM/Disks) need to be created in the same Region and Availability Zone as the affected VM.
@@ -91,7 +91,7 @@ Pre-requisites for this method require:
 
 >bcdedit /store %Drive and Path from step13% /enum /v
 >
->For this example: **bcdedit /store B:\EFI\Microsoft\Boot\bcd /enum /v**
+>For this example: `bcdedit /store B:\EFI\Microsoft\Boot\bcd /enum /v`
 
 16. Open a command prompt and run the command.
 17. Copy the Windows Boot Load Identifier from the output (This example: **3a615177-24a5-11ef-8404-002248498060**):
