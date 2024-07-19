@@ -1,5 +1,5 @@
 ---
-title: CrowdStrike VM Mitigation
+title: CrowdStrike Azure VM Mitigation
 date: 2024-07-19 10:42:05 +/-TTTT
 categories: [Azure, VMs]
 tags: [azure, vms, crowdstrike, bsod, loop, boot, restart, c00000291] # TAG names should always be lowercase
