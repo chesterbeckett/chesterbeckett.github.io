@@ -2,7 +2,7 @@
 title: CrowdStrike VM Mitigation
 date: 2024-07-19 12:42:05 +/-TTTT
 categories: [Azure, VMs]
-tags: [azure, vms, crowdstrike, c00000291, bsod, loop, boot, restart] # TAG names should always be lowercase
+tags: [azure, vms, crowdstrike, bsod, loop, boot, restart] # TAG names should always be lowercase
 ---
 
 ## Issue
