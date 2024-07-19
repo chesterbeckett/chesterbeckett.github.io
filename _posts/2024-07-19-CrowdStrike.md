@@ -105,7 +105,7 @@ Pre-requisites for this method require:
     4.  In Line 11, Device letter matches letter from step 14.
     5.  Replace ***%Boot Load Identifier%*** with your Identifier from step 17.
 
-```bash
+``` bash
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
 
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} integrityservices enable
@@ -124,7 +124,7 @@ bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} bootstatu
 19. Once the script is updated with the info, run the lines in turn via command prompt.
 20. They should all complete successfully, if not, check your paths and drive letters.
 21. Detach the now repaired disk from Staging VM.
-22. Go to effected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
+22. Go to affected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
 23. Boot affected server.
 
 ## Related Links
