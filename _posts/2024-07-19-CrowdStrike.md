@@ -7,7 +7,9 @@ tags: [azure, vms, crowdstrike, bsod, loop, boot, restart, c00000291] # TAG name
 
 ## Issue
 
-Crowdstrike issue impacting Virtual Machines running Windows Client and Windows Server, running the CrowdStrike Falcon agent, which may encounter a bug check (BSOD) and get stuck in a restarting state/boot loop.
+Let's be real here, this is not a Microsoft instigated outage. This is a Crowdstrike issue, that has impacted Virtual Machines running Windows Client and Windows Server, running the CrowdStrike Falcon agent on MANY platforms, including Azure, AWS, GCP and Dedicated environments.
+
+Affected Vms/Servers encounter a bug check (BSOD) and get stuck in a restarting state/boot loop.
 
 It's approximated that the impact started around 19:00 UTC on the 18th of July.
 
@@ -44,20 +46,20 @@ Pre-requisites for this method require:
 ### Steps (Azure Portal) for V1 VMs:
 
 1. From the affected VM, go to Disks and take Incremental Snapshot (Not Image) of affected OS Disk.
-2. Once the snapshot is created, create a new disk from that Snapshot, same region, RSG, AZ as effected VM OS disk.
+2. Once the snapshot is created, create a new disk from that Snapshot, same region, RSG, AZ as affected VM OS disk.
 3. Attach new disk to Staging VM.
 4. Logon to Staging VM.
 5. Use Disk Manager to "Online" the disk if its not online already.
 6. ![image](/assets/img/crowdstrike/img_1.png)
 7. Remove all `C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys` files.
 8. Detach new disk from Staging VM.
-9. Go to effected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
+9. Go to affected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
 10. Boot affected server.
 
 ### Steps (Azure Portal) for V2 VMs:
 
 1. From the affected VM, go to Disks and take Incremental Snapshot (Not Image) of affected OS Disk.
-2. Once the snapshot is created, create a new disk from that Snapshot, same region, RSG, AZ as effected VM OS disk.
+2. Once the snapshot is created, create a new disk from that Snapshot, same region, RSG, AZ as affected VM OS disk.
 3. Attach new disk to Staging VM.
 4. Logon to Staging VM.
 5. Use Disk Manager to "Online" the disk if its not online already.
@@ -74,7 +76,7 @@ Pre-requisites for this method require:
 16. Open File Explorer and you can now see B: drive mounted. Or whatever drive letter you chose in the previous step.
 17. Locate the BSD file and note the path. Typically, it should be: %drive letter%\EFI\Microsoft\Boot. Make a note of the path.
 18. ![image](/assets/img/crowdstrike/img_6.png)
-19. Make a note of the drive letter for the Windows Partition for the effected drive, in this example, `E:`
+19. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`
 20. With the information from step 13, update the following command:
     1.  > `bcdedit /store %Drive and Path from step13% /enum /v`
     2.  > For this example: `bcdedit /store B:\EFI\Microsoft\Boot\bcd /enum /v`
