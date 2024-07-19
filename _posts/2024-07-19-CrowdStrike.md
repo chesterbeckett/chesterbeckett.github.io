@@ -104,7 +104,8 @@ Pre-requisites for this method require:
     3.  In Line 5, Device letter matches letter from step 14.
     4.  In Line 11, Device letter matches letter from step 14.
     5.  Replace `%Boot Load Identifier%` with your Identifier from step 17.
-
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable -->
 ``` text
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
 
@@ -120,3 +121,4 @@ bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} osdevice 
 
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} bootstatuspolicy IgnoreAllFailures
 ```
+<!-- markdownlint-restore -->
