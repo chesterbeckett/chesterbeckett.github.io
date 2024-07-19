@@ -51,7 +51,7 @@ Pre-requisites for this method require:
 
 ![image](/assets/img/crowdstrike/img_1.png)
 
-6. Remove all **C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys** files.
+6. Remove all `C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys` files.
 7. Detach new disk from Staging VM.
 8. Go to effected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
 9. Boot affected server.
@@ -66,7 +66,7 @@ Pre-requisites for this method require:
 
 ![image](/assets/img/crowdstrike/img_2.png)
 
-6. Remove all **C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys** files.
+6. Remove all `C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys` files.
 7. We need to assign a drive letter to the boot partition, this is the EFI partition, usually around 95-99mb.
 
 ![image](/assets/img/crowdstrike/img_3.png)
@@ -86,15 +86,15 @@ Pre-requisites for this method require:
 
 ![image](/assets/img/crowdstrike/img_6.png)
 
-14. Make a note of the drive letter for the Windows Partition for the effected drive, in this example, **E:**
+14. Make a note of the drive letter for the Windows Partition for the effected drive, in this example, `E:`
 15. With the information from step 13, update the following command:
 
->bcdedit /store %Drive and Path from step13% /enum /v
+>`bcdedit /store %Drive and Path from step13% /enum /v`
 >
 >For this example: `bcdedit /store B:\EFI\Microsoft\Boot\bcd /enum /v`
 
 16. Open a command prompt and run the command.
-17. Copy the Windows Boot Load Identifier from the output (This example: **3a615177-24a5-11ef-8404-002248498060**):
+17. Copy the Windows Boot Load Identifier from the output (This example: `3a615177-24a5-11ef-8404-002248498060`):
 
 ![image](/assets/img/crowdstrike/img_7.png)
 
@@ -103,9 +103,9 @@ Pre-requisites for this method require:
     2.  In Line 1, Device Partition Drive letter matches letter from step 10.
     3.  In Line 5, Device letter matches letter from step 14.
     4.  In Line 11, Device letter matches letter from step 14.
-    5.  Replace **%Boot Load Identifier%** with your Identifier from step 17.
+    5.  Replace `%Boot Load Identifier%` with your Identifier from step 17.
 
-``` powershell
+```bash
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
 
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} integrityservices enable
