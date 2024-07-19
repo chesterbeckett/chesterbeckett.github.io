@@ -90,8 +90,7 @@ Pre-requisites for this method require:
     3.  In Line 5, Device letter matches letter from step 14.
     4.  In Line 11, Device letter matches letter from step 14.
     5.  Replace `<IDENTIFIER>` with your Identifier from step 17.
-
-```bash
+    6.  ```bash
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
 
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} integrityservices enable
@@ -106,7 +105,6 @@ bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} osdevice partition=
 
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} bootstatuspolicy IgnoreAllFailures
 ```
-
 25. Once the script is updated with the info, run the lines in turn via command prompt.
 26. They should all complete successfully, if not, check your paths and drive letters.
 27. Detach the now repaired disk from Staging VM.
