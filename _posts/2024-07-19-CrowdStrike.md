@@ -55,3 +55,40 @@ Pre-requisites for this method require:
 7. Detach new disk from Staging VM.
 8. Go to effected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
 9. Boot affected server.
+
+### Steps (Azure Portal) for V2 VMs:
+
+1. From the affected VM, go to Disks and take Incremental Snapshot (Not Image) of affected OS Disk.
+2. Once the snapshot is created, create a new disk from that Snapshot, same region, RSG, AZ as effected VM OS disk.
+3. Attach new disk to Staging VM.
+4. Logon to Staging VM.
+5. Use Disk Manager to "Online" the disk if its not online already.
+
+![image](/assets/img/crowdstrike/img_2.png)
+
+6. Remove all `C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys` files.
+7. We need to assign a drive letter to the boot partition, this is the EFI partition, usually around 95-99mb.
+
+![image](/assets/img/crowdstrike/img_3.png)
+
+8. Open Server Manager > File and Storage Services > Volumes > Disks.
+9. Check Disk Management for Disk Number, in this example - Disk 1.
+
+![image](/assets/img/crowdstrike/img_4.png)
+
+10. Set a drive letter with Server Manager, not Disk Management, by right-clicking on the volume > Manage Drive Letter....
+11. It can be any available letter but in this example, I used "B:", for boot.
+
+![image](/assets/img/crowdstrike/img_5.png)
+
+12. Open File Explorer and you can now see B: drive mounted. Or whatever drive letter you chose in the previous step.
+13. Locate the BSD file and note the path. Typically, it should be: %drive letter%\EFI\Microsoft\Boot. Make a note of the path.
+
+![image](/assets/img/crowdstrike/img_6.png)
+
+14. Make a note of the drive letter for the Windows Partition for the effected drive, in this example, `E:`
+15. With the information from step 13, update the following command:
+
+>`bcdedit /store %Drive and Path from step13% /enum /v`
+>
+>For this example: `bcdedit /store B:\EFI\Microsoft\Boot\bcd /enum /v`
