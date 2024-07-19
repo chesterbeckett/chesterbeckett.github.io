@@ -79,6 +79,7 @@ Pre-requisites for this method require:
 19. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`. See the pic from step 9, Windows Partition is on `E:`.
 20. With the information from step 13, update the following command:
     > `bcdedit /store %Drive and Path from step13% /enum /v`
+    >
     > For this example: `bcdedit /store B:\EFI\Microsoft\Boot\bcd /enum /v`
 21. Open a command prompt and run the command.
 22. Copy the Windows Boot Load Identifier from the output (This example: `3a615177-24a5-11ef-8404-002248498060`)
@@ -89,8 +90,7 @@ Pre-requisites for this method require:
     3.  In Line 5, Device letter matches letter from step 14.
     4.  In Line 11, Device letter matches letter from step 14.
     5.  Replace `<IDENTIFIER>` with your Identifier from step 17.
-
-```bash
+    6.  ```bash
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
 
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} integrityservices enable
@@ -105,7 +105,6 @@ bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} osdevice partition=
 
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} bootstatuspolicy IgnoreAllFailures
 ```
-
 25. Once the script is updated with the info, run the lines in turn via command prompt.
 26. They should all complete successfully, if not, check your paths and drive letters.
 27. Detach the now repaired disk from Staging VM.
