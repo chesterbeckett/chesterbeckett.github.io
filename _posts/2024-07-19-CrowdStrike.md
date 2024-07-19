@@ -92,3 +92,15 @@ Pre-requisites for this method require:
 >`bcdedit /store %Drive and Path from step13% /enum /v`
 >
 >For this example: `bcdedit /store B:\EFI\Microsoft\Boot\bcd /enum /v`
+
+16. Open a command prompt and run the command.
+17. Copy the Windows Boot Load Identifier from the output (This example: `3a615177-24a5-11ef-8404-002248498060`):
+
+![image](/assets/img/crowdstrike/img_7.png)
+
+18. Update the following scripts with the info:
+    1.  Set all the paths to your bcd
+    2.  In Line 1, Device Partition Drive letter matches letter from step 10.
+    3.  In Line 5, Device letter matches letter from step 14.
+    4.  In Line 11, Device letter matches letter from step 14.
+    5.  Replace `%Boot Load Identifier%` with your Identifier from step 17.
