@@ -43,7 +43,7 @@ Pre-requisites for this method require:
 - Staging resources (VM/Disks) need to be created in the same Region and Availability Zone as the affected VM.
 - Staging VM created in affected VMs Region and Availability Zone, get customer approval as multiple VMs may be required.
 
-### Steps (Azure Portal) for V1 VMs:
+### Steps (Azure Portal) for Gen V1 VMs:
 
 1. From the affected VM, go to Disks and take Incremental Snapshot (Not Image) of affected OS Disk.
 2. Once the snapshot is created, create a new disk from that Snapshot, same region, RSG, AZ as affected VM OS disk.
@@ -56,7 +56,7 @@ Pre-requisites for this method require:
 9. Go to affected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
 10. Boot affected server.
 
-### Steps (Azure Portal) for V2 VMs:
+### Steps (Azure Portal) for Gen V2 VMs:
 
 1. From the affected VM, go to Disks and take Incremental Snapshot (Not Image) of affected OS Disk.
 2. Once the snapshot is created, create a new disk from that Snapshot, same region, RSG, AZ as affected VM OS disk.
