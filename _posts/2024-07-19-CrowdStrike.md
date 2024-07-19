@@ -76,7 +76,7 @@ Pre-requisites for this method require:
 16. Open File Explorer and you can now see B: drive mounted. Or whatever drive letter you chose in the previous step.
 17. Locate the BSD file and note the path. Typically, it should be: %drive letter%\EFI\Microsoft\Boot. Make a note of the path.
 18. ![image](/assets/img/crowdstrike/img_6.png)
-19. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`
+19. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`. See the pic from step 9, Windows Partition is on `E:`.
 20. With the information from step 13, update the following command:
     1.  > `bcdedit /store %Drive and Path from step13% /enum /v`
     2.  > For this example: `bcdedit /store B:\EFI\Microsoft\Boot\bcd /enum /v`
