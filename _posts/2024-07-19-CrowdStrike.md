@@ -103,22 +103,32 @@ Pre-requisites for this method require:
     2.  In Line 1, Device Partition Drive letter matches letter from step 10.
     3.  In Line 5, Device letter matches letter from step 14.
     4.  In Line 11, Device letter matches letter from step 14.
-    5.  Replace `%Boot Load Identifier%` with your Identifier from step 17.
-<!-- markdownlint-capture -->
-<!-- markdownlint-disable -->
-``` text
+    5.  Replace `<IDENTIFIER>` with your Identifier from step 17.
+
+```bash
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
 
 bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} integrityservices enable
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} device partition=E:
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} device partition=E:
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} integrityservices enable
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} integrityservices enable
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} recoveryenabled Off
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} recoveryenabled Off
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} osdevice partition=E:
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} osdevice partition=E:
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {%Boot Load Identifier%} bootstatuspolicy IgnoreAllFailures
+bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} bootstatuspolicy IgnoreAllFailures
 ```
-<!-- markdownlint-restore -->
+
+19. Once the script is updated with the info, run the lines in turn via command prompt.
+20. They should all complete successfully, if not, check your paths and drive letters.
+21. Detach the now repaired disk from Staging VM.
+22. Go to affected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
+23. Boot affected server.
+
+## Related Links
+
+<a href="https://www.crowdstrike.com/blog/statement-on-falcon-content-update-for-windows-hosts/" target="_blank">Statement on Falcon Content Update for Windows Hosts</a>
+
+<a href="https://www.reddit.com/r/AZURE/comments/1e70rdw/psa_repairing_the_crowdstrike_bsod_on_azurehosted/" target="_blank">Some source material from Reddit</a>
