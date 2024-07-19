@@ -114,6 +114,10 @@ bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} bootstatuspolicy Ig
 
 ## Related Links
 
+<a href="https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/os-bucket-boot-failure" target="_blank">Troubleshoot Windows VM OS boot failure</a>
+
 <a href="https://www.crowdstrike.com/blog/statement-on-falcon-content-update-for-windows-hosts/" target="_blank">Statement on Falcon Content Update for Windows Hosts</a>
+
+<a href="https://www.crowdstrike.com/blog/our-statement-on-todays-outage/" target="_blank">CrowdStrike's Statement on the outage</a>
 
 <a href="https://www.reddit.com/r/AZURE/comments/1e70rdw/psa_repairing_the_crowdstrike_bsod_on_azurehosted/" target="_blank">Some source material from Reddit</a>
