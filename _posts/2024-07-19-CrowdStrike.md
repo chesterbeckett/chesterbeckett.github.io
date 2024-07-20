@@ -111,6 +111,20 @@ bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} bootstatuspolicy Ig
 27.  Detach the now repaired disk from Staging VM.
 28.  Go to affected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
 29.  Boot affected server.
+  
+## Automatic Repair Option
+
+You can follow this guide from MSFT on using their Repair tool. 
+
+> <a href="https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/repair-windows-vm-using-azure-virtual-machine-repair-commands" target="_blank">Repair a Windows VM by using the Azure Virtual Machine repair commands</a>
+
+You can run it in the Cloud Shell via the Portal, or a local Azure CLI install on your workstation.
+
+This will build out the Repair resources for you and manage the attaching/detaching of the disk. 
+
+There is also a cleanup process once complete.
+
+But you will still need to run the Boot Loader repair via the Repair VM as per my steps above, for Gen V2 VMs. The repair process doesnt automate that.
 
 ## Related Links
 
