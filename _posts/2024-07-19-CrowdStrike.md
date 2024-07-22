@@ -2,7 +2,7 @@
 title: CrowdStrike Azure VM Mitigation
 date: 2024-07-19 10:42:05 +/-TTTT
 categories: [Azure, VMs]
-tags: [azure, vms, crowdstrike, bsod, loop, boot, restart, c00000291] # TAG names should always be lowercase
+tags: [azure, vms, crowdstrike, bsod, loop, boot, restart, c00000291, az, vm, repair] # TAG names should always be lowercase
 ---
 
 ## Issue
@@ -90,37 +90,37 @@ Pre-requisites for this method require:
     3.  In Line 5, Device letter matches letter from step 14.
     4.  In Line 11, Device letter matches letter from step 14.
     5.  Replace `<IDENTIFIER>` with your Identifier from step 17.
-    
-```bash
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} integrityservices enable
+    ```bash
+    bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} device partition=B:
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} device partition=E:
+    bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {bootmgr} integrityservices enable
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} integrityservices enable
+    bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} device partition=E:
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} recoveryenabled Off
+    bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} integrityservices enable
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} osdevice partition=E:
+    bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} recoveryenabled Off
 
-bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} bootstatuspolicy IgnoreAllFailures
-```
+    bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} osdevice partition=E:
+
+    bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} bootstatuspolicy IgnoreAllFailures
+    ```
 25.  Once the script is updated with the info, run the lines in turn via command prompt.
 26.  They should all complete successfully, if not, check your paths and drive letters.
 27.  Detach the now repaired disk from Staging VM.
 28.  Go to affected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
 29.  Boot affected server.
-  
+
 ### Option 3 - Automatic Repair Option
 
-You can follow this guide from MSFT on using their Repair tool. 
+You can follow this guide from MSFT on using their Repair tool.
 
 > <a href="https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/repair-windows-vm-using-azure-virtual-machine-repair-commands" target="_blank">Repair a Windows VM by using the Azure Virtual Machine repair commands</a>
 
 You can run it in the Cloud Shell via the Portal, or a local Azure CLI install on your workstation.
 
-This will build out the Repair resources for you and manage the attaching/detaching of the disk. 
+This will build out the Repair resources for you and manage the attaching/detaching of the disk.
 
 There is also a cleanup process once complete.
 
@@ -128,10 +128,10 @@ But you will still need to run the Boot Loader repair via the Repair VM as per m
 
 ## Related Links
 
+<a href="https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/repair-windows-vm-using-azure-virtual-machine-repair-commands" target="_blank">Repair a Windows VM by using the Azure Virtual Machine repair commands</a>
+
 <a href="https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/os-bucket-boot-failure" target="_blank">Troubleshoot Windows VM OS boot failure</a>
 
-<a href="https://www.crowdstrike.com/blog/statement-on-falcon-content-update-for-windows-hosts/" target="_blank">Statement on Falcon Content Update for Windows Hosts</a>
+<a href="https://www.crowdstrike.com/falcon-content-update-remediation-and-guidance-hub/" target="_blank">Falcon Update Remediation and Guidance Hub</a>
 
 <a href="https://www.crowdstrike.com/blog/our-statement-on-todays-outage/" target="_blank">CrowdStrike's Statement on the outage</a>
-
-<a href="https://www.reddit.com/r/AZURE/comments/1e70rdw/psa_repairing_the_crowdstrike_bsod_on_azurehosted/" target="_blank">Some source material from Reddit</a>
