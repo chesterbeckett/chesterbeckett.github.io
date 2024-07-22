@@ -88,7 +88,10 @@ Pre-requisites for this method require:
 
     ![image](/assets/img/crowdstrike/img_6.png)
 
-14. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`. See the pic from step 9, Windows Partition is on `E:`.
+14. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`. See the pic from step 7, where you see can that the Windows Partition is on `E:`. See the arrow below:
+
+    ![image](/assets/img/crowdstrike/img_6.1.png)
+
 15. With the information from step 13, update the following command:
 
     > `bcdedit /store %Drive and Path from step13% /enum /v`
@@ -102,7 +105,7 @@ Pre-requisites for this method require:
 
 18. Update the following scripts with the info:
     1.  Set all the paths to your bcd
-    2.  In Line 1, Device Partition Drive letter matches letter from step 10.
+    2.  In Line 1, Device Partition Drive letter matches letter from step 10/11.
     3.  In Line 5, Device letter matches letter from step 14.
     4.  In Line 11, Device letter matches letter from step 14.
     5.  Replace `<IDENTIFIER>` with your Identifier from step 17.
