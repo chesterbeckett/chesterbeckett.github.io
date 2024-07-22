@@ -88,7 +88,7 @@ Pre-requisites for this method require:
 
     ![image](/assets/img/crowdstrike/img_6.png)
 
-14. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`. See the pic from step 7, where you see that the Windows Partition is on `E:`.
+14. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`. See the pic from step 7, where you see can that the Windows Partition is on `E:`.
 15. With the information from step 13, update the following command:
 
     > `bcdedit /store %Drive and Path from step13% /enum /v`
