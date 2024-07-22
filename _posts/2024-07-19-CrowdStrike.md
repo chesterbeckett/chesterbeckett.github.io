@@ -50,11 +50,13 @@ Pre-requisites for this method require:
 3. Attach new disk to Staging VM.
 4. Logon to Staging VM.
 5. Use Disk Manager to "Online" the disk if its not online already.
-6. ![image](/assets/img/crowdstrike/img_1.png)
-7. Remove all `C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys` files.
-8. Detach new disk from Staging VM.
-9. Go to affected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
-10. Boot affected server.
+
+    ![image](/assets/img/crowdstrike/img_1.png)
+
+6. Remove all `C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys` files.
+7. Detach new disk from Staging VM.
+8. Go to affected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
+9. Boot affected server.
 
 #### Steps (Azure Portal) for Gen V2 VMs:
 
@@ -63,28 +65,42 @@ Pre-requisites for this method require:
 3. Attach new disk to Staging VM.
 4. Logon to Staging VM.
 5. Use Disk Manager to "Online" the disk if its not online already.
-6. ![image](/assets/img/crowdstrike/img_2.png)
-7. Remove all `C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys` files.
-8. We need to assign a drive letter to the boot partition, this is the EFI partition, usually around 95-99mb.
-9. ![image](/assets/img/crowdstrike/img_3.png)
-10. Open Server Manager > File and Storage Services > Volumes > Disks.
-11. Check Disk Management for Disk Number, in this example - Disk 1.
-12. ![image](/assets/img/crowdstrike/img_4.png)
-13. Set a drive letter with Server Manager, not Disk Management, by right-clicking on the volume > Manage Drive Letter....
-14. It can be any available letter but in this example, I used "B:", for boot.
-15. ![image](/assets/img/crowdstrike/img_5.png)
-16. Open File Explorer and you can now see B: drive mounted. Or whatever drive letter you chose in the previous step.
-17. Locate the BSD file and note the path. Typically, it should be: %drive letter%\EFI\Microsoft\Boot. Make a note of the path.
-18. ![image](/assets/img/crowdstrike/img_6.png)
-19. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`. See the pic from step 9, Windows Partition is on `E:`.
-20. With the information from step 13, update the following command:
+
+    ![image](/assets/img/crowdstrike/img_2.png)
+
+6. Remove all `C:/Windows/System/System32/Drivers/CrowdStrike/C00000291*.sys` files.
+7. We need to assign a drive letter to the boot partition, this is the EFI partition, usually around 95-99mb.
+
+    ![image](/assets/img/crowdstrike/img_3.png)
+
+8.  Open Server Manager > File and Storage Services > Volumes > Disks.
+9.  Check Disk Management for Disk Number, in this example - Disk 1.
+
+    ![image](/assets/img/crowdstrike/img_4.png)
+
+10. Set a drive letter with Server Manager, not Disk Management, by right-clicking on the volume > Manage Drive Letter....
+11. It can be any available letter but in this example, I used "B:", for boot.
+
+    ![image](/assets/img/crowdstrike/img_5.png)
+
+12. Open File Explorer and you can now see B: drive mounted. Or whatever drive letter you chose in the previous step.
+13. Locate the BSD file and note the path. Typically, it should be: %drive letter%\EFI\Microsoft\Boot. Make a note of the path.
+
+    ![image](/assets/img/crowdstrike/img_6.png)
+
+14. Make a note of the drive letter for the Windows Partition for the affected drive, in this example, `E:`. See the pic from step 9, Windows Partition is on `E:`.
+15. With the information from step 13, update the following command:
+
     > `bcdedit /store %Drive and Path from step13% /enum /v`
     >
     > For this example: `bcdedit /store B:\EFI\Microsoft\Boot\bcd /enum /v`
-21. Open a command prompt and run the command.
-22. Copy the Windows Boot Load Identifier from the output (This example: `3a615177-24a5-11ef-8404-002248498060`)
-23. ![image](/assets/img/crowdstrike/img_7.png)
-24. Update the following scripts with the info:
+
+16. Open a command prompt and run the command.
+17. Copy the Windows Boot Load Identifier from the output (This example: `3a615177-24a5-11ef-8404-002248498060`)
+
+    ![image](/assets/img/crowdstrike/img_7.png)
+
+18. Update the following scripts with the info:
     1.  Set all the paths to your bcd
     2.  In Line 1, Device Partition Drive letter matches letter from step 10.
     3.  In Line 5, Device letter matches letter from step 14.
@@ -106,11 +122,11 @@ Pre-requisites for this method require:
 
     bcdedit /store B:\EFI\Microsoft\Boot\bcd /set {<IDENTIFIER>} bootstatuspolicy IgnoreAllFailures
     ```
-25.  Once the script is updated with the info, run the lines in turn via command prompt.
-26.  They should all complete successfully, if not, check your paths and drive letters.
-27.  Detach the now repaired disk from Staging VM.
-28.  Go to affected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
-29.  Boot affected server.
+19.  Once the script is updated with the info, run the lines in turn via command prompt.
+20.  They should all complete successfully, if not, check your paths and drive letters.
+21.  Detach the now repaired disk from Staging VM.
+22.  Go to affected VM and SWAP OS Disk to new Disk. VM > Disks > Swap OS Disk.
+23.  Boot affected server.
 
 ### Option 3 - Automatic Repair Option
 
