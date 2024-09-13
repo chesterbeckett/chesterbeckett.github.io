@@ -21,9 +21,9 @@ Microsoft is making these preconfigured security settings available to everyone,
 
 - **Phase 2**: Beginning in early 2025, MFA enforcement gradually begins for sign in to Azure CLI, Azure PowerShell, Azure mobile app, and IaC tools. Some customers may use a user account in Microsoft Entra ID as a service account. It's recommended to migrate these user-based service accounts to secure cloud based service accounts with workload identities.
 
-## Enable basic MFA, no license required
+## Enable Basic Entra ID MFA, No Entra ID Premium License Required
 
-You can enable basic MFA without the need for a Premium Entra License.
+You can enable Basic Entra ID MFA without the need for a Premium Entra License.
 
 Open the Azure Portal:
 
@@ -37,6 +37,6 @@ Basic MFA is now enabled, no license required.
 
 ![image](/assets/img/enablemfa/img_1.png)
 
-Bear in mind that this is the default MFA option so is not as configurable, in terms of exclusions, conditional access etc. For further functionality, you will need a <a href="https://www.microsoft.com/en-gb/security/business/microsoft-entra-pricing" target="_blank">Premium license</a>.
+Bear in mind that this is the Basic MFA option so is not as configurable, in terms of exclusions, conditional access etc. For further functionality, you will need a <a href="https://www.microsoft.com/en-gb/security/business/microsoft-entra-pricing" target="_blank">Premium license</a>.
 
-Further guidance for enabling MFA wiht more features can be found <a href="https://learn.microsoft.com/en-gb/entra/identity/authentication/concept-mandatory-multifactor-authentication" target="_blank">here</a>.
+Further guidance for enabling MFA with more features can be found <a href="https://learn.microsoft.com/en-gb/entra/identity/authentication/concept-mandatory-multifactor-authentication" target="_blank">here</a>.
