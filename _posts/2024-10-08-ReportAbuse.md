@@ -1,5 +1,5 @@
 ---
-title: Reporting the malicious use of Microsoft Azure
+title: Reporting the Malicious Use of Microsoft Azure
 date: 2024-10-08 11:30:05 +/-TTTT
 categories: [Azure, Abuse, Report]
 tags: [azure, report, abuse, malicious, msrc, security, attack] # TAG names should always be lowercase
