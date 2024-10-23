@@ -1,6 +1,6 @@
 ---
 title: Azure Update Manager - Set Patch Orchestration Mode to AutomaticByPlatform
-date: 2024-10-023 11:06:05 +/-TTTT
+date: 2024-10-23 11:06:05 +/-TTTT
 categories: [Azure, Update Manager]
 tags: [azure, aum, update, manager, prerequisites, automaticbyplatform] # TAG names should always be lowercase
 ---
