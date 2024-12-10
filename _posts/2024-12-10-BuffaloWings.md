@@ -1,6 +1,6 @@
 ---
 title: Buffalo Wings
-date: 2024-12-10 10:48:05 +/-TTTT
+date: 2024-12-10 09:12:05 +/-TTTT
 categories: [Kitchen, Chicken, Wings]
 tags: [kitchen, chicken, wings, buffalo]     # TAG names should always be lowercase
 ---
@@ -17,10 +17,11 @@ There are probably plenty of variations on this too, but I've gone with the bare
 - 1/2 tsp Salt
 - 1/2 tsp Pepper
 
-## Wings Sauce
+## Buffalo Wing Sauce
 - 120 grams Unsalted Butter
 - 180 ml <a href="https://amzn.eu/d/iR3vThY" target="_blank">Frank's Red Hot Sauce</a>
 - 1 tbsp Honey
+- Salt/Pepper for seasoning
 
 # Steps
 
@@ -38,12 +39,13 @@ There are probably plenty of variations on this too, but I've gone with the bare
 
 You can make the sauce while the wings are cooling or cooking and reheat when the chicken is ready.
 
-Optional: I like to add an extra kick to mine so I get a fresh Scotch Bonnet (or just half, or less), finely chopped and add to the melted butter, cook for 1 min before adding Frank's.
+> Optional: I like to add an extra kick to mine so I get a fresh Scotch Bonnet (or just half, or less), finely chopped and add to the melted butter, cook for 1 min before adding Frank's.
+{: .prompt-tip }
 
 1. Melt the butter in a sauce pan.
 2. Once melted add in the <a href="https://amzn.eu/d/iR3vThY" target="_blank">Frank's Red Hot Sauce</a> and bring up to temp, not boiling.
 3. Add the honey.
-4. Taste and season as required with salt.
+4. Taste and season as required with salt/pepper to taste.
 5. Keep the sauce warm for the tossing.
 
 ## Toss and serve
