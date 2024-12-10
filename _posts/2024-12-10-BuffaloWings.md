@@ -51,4 +51,4 @@ Optional: I like to add an extra kick to mine so I get a fresh Scotch Bonnet (or
 1. Once the wings are done, after about 30mins in the oven, toss the wings in a large mixing bowl together with the buffalo sauce.
 2. Ready to serve.
 
- ![image](/assets/img/buffalowings/buffalowings.png)
+ ![image](/assets/img/buffalowings/buff_wings.jpg)
