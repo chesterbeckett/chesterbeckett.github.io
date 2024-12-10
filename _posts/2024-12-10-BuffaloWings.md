@@ -59,3 +59,6 @@ You can make the sauce while the wings are cooling or cooking and reheat when th
 
  On the braai
  ![image](/assets/img/buffalowings/braai_buff_wings.jpg)
+
+ From the oven (Ready to toss)
+  ![image](/assets/img/buffalowings/oven_buff_wings.jpg)
