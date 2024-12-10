@@ -9,7 +9,7 @@ This is probably a very popular/common way to do Buffalo Wings, a firm favourite
 
 There are probably plenty of variations on this too, but I've gone with the bare minimum, and you can choose to add bits as you need/want.
 
-Now I usually cook the wings on the braai, but the oven will do just as well. For the braai method, you want to offset your coals and cook the wings with the braai covered, you will need high heat for this one to get the wings crispy.
+Now I usually cook the wings on the braai, but the oven will do just as well. For the braai method, you want to offset your coals and cook the wings indirect with the braai covered, you will need high heat for this one to get the wings crispy.
 
 # Ingredients
 
@@ -56,3 +56,6 @@ You can make the sauce while the wings are cooling or cooking and reheat when th
 2. Ready to serve.
 
  ![image](/assets/img/buffalowings/buff_wings.jpg)
+
+ On the braai
+ ![image](/assets/img/buffalowings/braai_buff_wings.jpg)
