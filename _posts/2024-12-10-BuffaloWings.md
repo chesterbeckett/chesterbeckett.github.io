@@ -5,6 +5,8 @@ categories: [Kitchen, Chicken, Wings]
 tags: [kitchen, chicken, wings, buffalo]     # TAG names should always be lowercase
 ---
 
+This one's for Cian.
+
 This is probably a very popular/common way to do Buffalo Wings, a firm favourite, dead easy and low prep requirement!
 
 There are probably plenty of variations on this too, but I've gone with the bare minimum, and you can choose to add bits as you need/want.
