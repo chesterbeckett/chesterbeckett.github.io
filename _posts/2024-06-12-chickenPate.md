@@ -1,7 +1,7 @@
 ---
 title: Chicken Liver Paté
 date: 2024-06-12 10:48:05 +/-TTTT
-categories: [Kitchen, Paté]
+categories: [Kitchen, Chicken, Paté]
 tags: [kitchen, chicken, liver, pate, paté]     # TAG names should always be lowercase
 ---
 
