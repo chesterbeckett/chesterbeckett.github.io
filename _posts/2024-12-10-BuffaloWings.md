@@ -11,7 +11,7 @@ This is probably a very popular/common way to do Buffalo Wings, a firm favourite
 
 There are probably plenty of variations on this too, but I've gone with the bare minimum, and you can choose to add bits as you need/want.
 
-Now I usually cook the wings on the braai, but the oven will do just as well. For the braai method, you want to offset your coals and cook the wings indirect with the braai covered, you will need high heat for this one to get the wings crispy.
+Now I usually cook the wings on the braai, but the oven will do just as well. For the braai method, you want to offset your coals and cook the wings indirect with the braai covered, you will need high heat for this one to get the wings crispy. Shuffle the wings halfway so they dont stick, there shouldnt be a need to turn if the braai is hot enough, but turn if needed, same method as the oven, to get that all round cook/colour to them. You just dont want to keep opening the lid too often or you will lose the heat and miss the crisp.
 
 # Ingredients
 
