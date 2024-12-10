@@ -1,8 +1,8 @@
 ---
 title: Buffalo Wings
 date: 2024-12-10 10:48:05 +/-TTTT
-categories: [Kitchen, Wings, Buffalo]
-tags: [kitchen, chicken, wings]     # TAG names should always be lowercase
+categories: [Kitchen, Chicken, Wings]
+tags: [kitchen, chicken, wings, buffalo]     # TAG names should always be lowercase
 ---
 
 This is probably a very popular/common way to do Buffalo Wings, a firm favourite, dead easy and low prep requirement!
