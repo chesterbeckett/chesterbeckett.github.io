@@ -11,7 +11,7 @@ This is probably a very popular/common way to do Buffalo Wings, a firm favourite
 
 There are probably plenty of variations on this too, but I've gone with the bare minimum, and you can choose to add bits as you need/want.
 
-Now I usually cook the wings on the braai, but the oven will do just as well. For the braai method, you want to offset your coals and cook the wings indirect with the braai covered, you will need high heat for this one to get the wings crispy. Shuffle the wings halfway so they dont stick, there shouldnt be a need to turn if the braai is hot enough, but turn if needed, same method as the oven, to get that all round cook/colour to them. You just dont want to keep opening the lid too often or you will lose the heat and miss the crisp.
+Now I usually cook the wings on the braai, but the oven will do just as well. For the braai method, you want to offset your coals and cook the wings indirectly with the braai covered, you will need high heat for this one to get the wings crispy. Shuffle the wings halfway so they dont stick, there shouldnt be a need to turn if the braai is hot enough, but turn if needed, same method as the oven, to get that all round cook/colour to them. You just don't want to keep opening the lid too often or you will lose the heat and miss the crisp.
 
 # Ingredients
 
@@ -35,7 +35,7 @@ Now I usually cook the wings on the braai, but the oven will do just as well. Fo
 3. Lay out the wings on a baking tray, skin side up, touching is fine but you want to spread them out for even cooks.
 4. Allow wings to cool in the fridge for as long as possible. An hour or two if possible.
 5. While the wings are cooling, pre-heat the oven* to 180-200 C.
-6. Once you are are ready to start cooking, pop the wings into the oven, bottom shelf for around 20mins. Turning them halfway.
+6. Once you are ready to start cooking, pop the wings into the oven, bottom shelf for around 20mins. Turning them halfway.
 7. After 20mins on the bottom, raise them up to the top shelf and turn up the oven to around 220 C. Turn the wings back to skin side up.
 8. Cook till golden and crispy, around 10mins.
 
@@ -59,8 +59,8 @@ You can make the sauce while the wings are cooling or cooking and reheat when th
 
  ![image](/assets/img/buffalowings/buff_wings.jpg)
 
- On the braai
+ On the braai:
  ![image](/assets/img/buffalowings/braai_buff_wings.jpg)
 
- From the oven (Ready to toss)
-  ![image](/assets/img/buffalowings/oven_buff_wings.jpg)
+ From the oven (Ready to toss):
+ ![image](/assets/img/buffalowings/oven_buff_wings.jpg)
