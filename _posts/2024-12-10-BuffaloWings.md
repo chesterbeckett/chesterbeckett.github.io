@@ -19,15 +19,15 @@ The Blue Cheese Dipping Sauce is optional, not everyone enjoys blue cheese, but 
 
 ## For Crispy Wings
 - 1.5 kg Chicken wings
-- 1 tbsp Smoked Paprika
-- 2 tsp Onion Powder
-- 2 tsp Garlic Powder
-- 2 tsp Baking Powder (NOT Baking Soda)
+- 1 tbsp Smoked paprika
+- 2 tsp Onion powder
+- 2 tsp Garlic powder
+- 2 tsp Baking powder (NOT Baking Soda)
 - 1/2 tsp Salt
 - 1/2 tsp Pepper
 
 ## Buffalo Wing Sauce
-- 120 grams Unsalted Butter
+- 120 grams Unsalted butter
 - 180 ml <a href="https://amzn.eu/d/iR3vThY" target="_blank">Frank's Red Hot Sauce</a>
 - 1 tbsp Honey
 
