@@ -13,6 +13,8 @@ There are probably plenty of variations on this too, but I've gone with the bare
 
 Now I usually cook the wings on the braai, but the oven will do just as well. For the braai method, you want to offset your coals and cook the wings indirect with the braai covered, you will need around 230&deg;C for 30mins, to get the wings crispy. Shuffle the wings halfway so they dont stick, same method as the oven, to get that all round cook/colour to them. You just dont want to keep opening the lid too often or you will lose the heat and miss the crisp.
 
+The Blue Cheese Dipping Sauce is optional, not everyone enjoys blue cheese, but if you do, this will be great.
+
 # Ingredients
 
 ## For Crispy Wings
@@ -28,7 +30,6 @@ Now I usually cook the wings on the braai, but the oven will do just as well. Fo
 - 120 grams Unsalted Butter
 - 180 ml <a href="https://amzn.eu/d/iR3vThY" target="_blank">Frank's Red Hot Sauce</a>
 - 1 tbsp Honey
-- Salt/Pepper for seasoning
 
 ## Blue Cheese Dipping Sauce
 - 4 tbsp Mayo
@@ -59,7 +60,7 @@ You can make the sauce while the wings are cooling or cooking and reheat when th
 1. Melt the butter in a sauce pan.
 2. Once melted add in the <a href="https://amzn.eu/d/iR3vThY" target="_blank">Frank's Red Hot Sauce</a> and bring up to temp, not boiling.
 3. Add the honey.
-4. Taste and season as required with salt/pepper to taste.
+4. Taste, and adjust for more honey or Frank's as required. Should be tangy and sweet.
 5. Keep the sauce warm for the tossing.
 
 ## Prepare the blue cheese dipping sauce
@@ -69,7 +70,7 @@ You dont have to make the dipping sauce, but it does go well with the wings!
 1. Add all the ingredients into a mixing bowl.
 2. Stir up the mix, ensuring you break up the cheese.
 3. Season to taste with a bit of salt, if needed.
-4. Store in the fridge till you are ready to serve.
+4. Store in the fridge till the wings are ready to serve.
 
 ## Toss and serve
 
@@ -82,4 +83,4 @@ You dont have to make the dipping sauce, but it does go well with the wings!
  ![image](/assets/img/buffalowings/braai_buff_wings.jpg)
 
  From the oven (Ready to toss)
-  ![image](/assets/img/buffalowings/oven_buff_wings.jpg)
+ ![image](/assets/img/buffalowings/oven_buff_wings.jpg)
