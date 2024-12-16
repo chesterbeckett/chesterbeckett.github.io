@@ -11,7 +11,7 @@ This is probably a very popular/common way to do Buffalo Wings, a firm favourite
 
 There are probably plenty of variations on this too, but I've gone with the bare minimum, and you can choose to add bits as you need/want.
 
-Now I usually cook the wings on the braai, but the oven will do just as well. For the braai method, you want to offset your coals and cook the wings indirect with the braai covered, you will need around 230&deg;C for 30mins, to get the wings crispy. Shuffle the wings halfway so they dont stick, same method as the oven, to get that all round cook/colour to them. You just dont want to keep opening the lid too often or you will lose the heat and miss the crisp.
+Now I usually cook the wings on the braai, but the oven will do just as well. For the braai method, you want to offset your coals and cook the wings indirectly with the braai covered, you will need around 230&deg;C for 30mins, to get the wings crispy. Shuffle the wings halfway so they don't stick, same method as the oven, to get that all round cook/colour to them. You just don't want to keep opening the lid too often or you will lose the heat and miss the crisp.
 
 The Blue Cheese Dipping Sauce is optional, not everyone enjoys blue cheese, but if you do, this will be great.
 
@@ -19,10 +19,10 @@ The Blue Cheese Dipping Sauce is optional, not everyone enjoys blue cheese, but 
 
 ## For Crispy Wings
 - 1.5 kg Chicken wings
-- 1 tbsp smoked paprika
+- 1 tbsp Smoked Paprika
 - 2 tsp Onion Powder
 - 2 tsp Garlic Powder
-- 2 tsp Baking powder (NOT Baking Soda)
+- 2 tsp Baking Powder (NOT Baking Soda)
 - 1/2 tsp Salt
 - 1/2 tsp Pepper
 
@@ -37,18 +37,18 @@ The Blue Cheese Dipping Sauce is optional, not everyone enjoys blue cheese, but 
 - 1 tbsp Buttermilk
 - 1/4 tsp English mustard powder
 - 60 gr Blue cheese
-- 1 crushed/grated garlic clove
+- 1 Crushed/finely grated garlic clove
 
 # Steps
 
 ## Prepare the wings
 1. Pat down the wings with some paper towel to remove excess moisture.
-2. Toss the wings in a large bowl with the baking power, paprika, onion/garlic powder salt and pepper. Ensure an even coating on all the wings.
+2. Toss the wings in a large bowl with the baking power, paprika, onion/garlic powder, salt and pepper. Ensure an even coating on all the wings.
 3. Lay out the wings on a baking tray, skin side up, touching is fine but you want to spread them out for even cooks.
 4. Allow wings to cool in the fridge for as long as possible. An hour or two if possible.
 5. While the wings are cooling, pre-heat the oven/braai to 230&deg;C.
-6. Once you are are ready to start cooking, pop the wings into the oven/braai.
-7. Cook till golden and crispy. Cooking time is around 30mins. You will want to turn every 10mins, ending with skin side up. Internal temp if you have a probe should be around 80&deg;C.
+6. Once you are ready to start cooking, pop the wings into the oven/braai.
+7. Cook until golden and crispy. Cooking time is around 30mins. You will want to turn every 10mins, ending with skin side up. Internal temp if you have a probe should be around 80&deg;C.
 
 ## Prepare the buffalo wing sauce
 
@@ -65,7 +65,7 @@ You can make the sauce while the wings are cooling or cooking and reheat when th
 
 ## Prepare the blue cheese dipping sauce
 
-You dont have to make the dipping sauce, but it does go well with the wings!
+You don't have to make the dipping sauce, but it does go well with the wings!
 
 1. Add all the ingredients into a mixing bowl.
 2. Stir up the mix, ensuring you break up the cheese.
