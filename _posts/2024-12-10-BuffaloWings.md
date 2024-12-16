@@ -59,9 +59,10 @@ You can make the sauce while the wings are cooling or cooking and reheat when th
 
 1. Melt the butter in a sauce pan.
 2. Once melted add in the <a href="https://amzn.eu/d/1fqGqyR" target="_blank">Frank's Red Hot Sauce</a> and bring up to temp, not boiling.
-3. Add the honey.
-4. Taste, and adjust for more honey or Frank's as required. Should be tangy and sweet.
-5. Keep the sauce warm for the tossing.
+3. Stirring well to combine the butter into the sauce.
+4. Add the honey as you stir.
+5. Taste, and adjust for more honey or Frank's as required. Should be tangy and sweet.
+6. Keep the sauce warm for the tossing.
 
 ## Prepare the blue cheese dipping sauce
 
