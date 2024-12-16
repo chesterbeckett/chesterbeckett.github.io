@@ -28,7 +28,7 @@ The Blue Cheese Dipping Sauce is optional, not everyone enjoys blue cheese, but 
 
 ## Buffalo Wing Sauce
 - 120 grams Unsalted butter
-- 180 ml <a href="https://amzn.eu/d/iR3vThY" target="_blank">Frank's Red Hot Sauce</a>
+- 250 ml <a href="https://amzn.eu/d/iR3vThY" target="_blank">Frank's Red Hot Sauce</a>
 - 1 tbsp Honey
 
 ## Blue Cheese Dipping Sauce
