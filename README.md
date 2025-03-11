@@ -1,6 +1,6 @@
 # Welcome to my repo
 
-A simple place for interesting and helpful Azure related help and knowledge. Along with the occasional recipe, because those are definitely also worth sharing!
+A simple place for interesting and helpful (hopefully) Azure related help and knowledge. Along with the occasional recipe, because those are definitely also worth sharing!
 
 Reach out via my contacts if you had any queries or feedback. 
 
