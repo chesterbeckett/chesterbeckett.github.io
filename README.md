@@ -1,4 +1,4 @@
-# Welcome to my Repo
+# Welcome to my repo
 
 A simple place for interesting and helpful Azure related help and knowledge. Along with the occasional recipe, because those are definitely also worth sharing!
 
