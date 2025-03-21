@@ -1,2 +1,0 @@
-publicIPAddress,publicIPID,ipConfigId,VMId
-20.162.165.141,/subscriptions/e44872b2-e898-46d0-800f-59752a564718/resourceGroups/cb-tools/providers/Microsoft.Network/publicIPAddresses/cb-tools-pip-basic-01,/subscriptions/e44872b2-e898-46d0-800f-59752a564718/resourceGroups/cb-tools/providers/Microsoft.Network/networkInterfaces/cb-tools-vm-basic-01577/ipConfigurations/ipconfig1,/subscriptions/e44872b2-e898-46d0-800f-59752a564718/resourceGroups/cb-tools/providers/Microsoft.Compute/virtualMachines/cb-tools-vm-basic-01
