@@ -140,7 +140,7 @@ You need this as you need to set the Transformation Query once the Schema has be
 
 Transformation Query:
 
-```kusto
+```bash
 source | project d = split(RawData," ") | project TimeGenerated=todatetime(strcat(d[0], " ", d[1])), s_ip=tostring(d[2]), cs_method=tostring(d[3]), cs_uri_stem=tostring(d[4]), cs_uri_query=tostring(d[5]), s_port=toint(d[6]), cs_username=tostring(d[7]), c_ip=tostring(d[8]), cs_version=tostring(d[9]), cs_User_Agent=tostring(d[10]), cs_referer=tostring(d[11]), cs_host=tostring(d[12]), sc_status=toint(d[13]), sc_substatus=toint(d[14]), sc_win32_status=toint(d[15]), time_taken=toint(d[16]), x_forwarded_for=tostring(d[17])
 ```
 Edit the above, if yours is different, to "match" the IIS Log columns (number) to the Column in your Custom Log Table (name).
