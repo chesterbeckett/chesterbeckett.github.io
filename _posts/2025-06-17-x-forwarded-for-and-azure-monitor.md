@@ -64,7 +64,7 @@ You can remove the mostly useless client port from the header using the rewrites
 Once that is done, your logs will now look should look like this:
 
 ```bash
-2025-06-18 11:01:28 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 https://www.host.com/ www.host.com 404 0 2 0 109.146.111.249
+2025-06-18 11:01:28 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 - www.host.com 404 0 2 0 109.146.111.249
 ```
 
 ## Getting Custom Log Ingestion Set-Up
@@ -118,7 +118,7 @@ In this example, I have used the same log entry as above in the IIS setup. If yo
     "c_ip": "10.0.2.5",
     "c_version": "HTTP/1.1",
     "cs_User_Agent": "Mozilla/5.0",
-    "cs_Referer": "https://www.host.com/",
+    "cs_Referer": "-",
     "cs_host": "www.host.com",
     "sc_status": 404,
     "sc_substatus": 0,
