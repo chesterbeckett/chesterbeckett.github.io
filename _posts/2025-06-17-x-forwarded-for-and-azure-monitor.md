@@ -45,7 +45,7 @@ Add the *X-Forwarded-For* field using the "Select Fields" button, under the Logg
 AppGw supports and logs the *X-Forwarded-For* headers by default, but it includes the client port in the string too (note the IP:PORT value at the end):
 
 ```bash
-2025-06-17 19:04:33 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 404 0 2 1 109.146.111.249:61335
+2025-06-18 11:01:28 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 https://www.host.com/ www.host.com 404 0 2 0 109.146.111.249:61335
 ```
 
 You can remove the mostly useless client port from the header using the rewrites config on your AppGw > Rewrites > Add Rewrite Set.
@@ -64,7 +64,7 @@ You can remove the mostly useless client port from the header using the rewrites
 Once that is done, your logs will now look should look like this:
 
 ```bash
-2025-06-17 19:04:33 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 404 0 2 1 109.146.111.249
+2025-06-18 11:01:28 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 https://www.host.com/ www.host.com 404 0 2 0 109.146.111.249
 ```
 
 ## Getting Custom Log Ingestion Set-Up
@@ -96,7 +96,7 @@ In the file, find the LATEST #Fields comment entry:
 Copy them out to VS Code/Editor of choice
 
 ```powershell
-date time s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-win32-status time-taken X-Forwarded-For
+date time s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Referer) cs-host sc-status sc-substatus sc-win32-status time-taken X-Forwarded-For
 ```
 We use these to create a JSON file, which is an example schema for Azure.
 
@@ -116,8 +116,10 @@ In this example, I have used the same log entry as above in the IIS setup. If yo
     "s_port": 443,
     "cs_username": "-",
     "c_ip": "10.0.2.5",
+    "c_version": "HTTP/1.1",
     "cs_User_Agent": "Mozilla/5.0",
-    "cs_Referer": "-",
+    "cs_Referer": "https://www.host.com/",
+    "cs_host": "www.host.com",
     "sc_status": 404,
     "sc_substatus": 0,
     "sc_win32_status": 0,
@@ -172,3 +174,7 @@ Once you have those two things sorted, we can go ahead and create the table.
 ![image](/assets/img/xff/img_6.png)
 
 #### Recreate the DCR
+
+At this point we have a Custom Table and DCR created. But the DCR will not be working. I suspect this is because we havent yet been able to set the location of the source files.
+
+So we delete the DCR you created when creating the table. The table will remain, so don't be concerned about that.
