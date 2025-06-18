@@ -180,3 +180,5 @@ Once you have those two things sorted, we can go ahead and create the table.
 At this point we have a Custom Table and DCR created. But the DCR will not be working. I suspect this is because we havent yet been able to set the location of the source files.
 
 So we delete the DCR you created when creating the table. The table will remain, so don't be concerned about that.
+
+..tbc
