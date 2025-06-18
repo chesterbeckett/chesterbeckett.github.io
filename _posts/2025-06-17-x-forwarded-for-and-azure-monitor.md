@@ -95,7 +95,7 @@ In the file, find the LATEST #Fields comment entry:
 
 Copy them out to VS Code/Editor of choice
 
-```powershell
+```bash
 date time s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Referer) cs-host sc-status sc-substatus sc-win32-status time-taken X-Forwarded-For
 ```
 We use these to create a JSON file, which is an example schema for Azure.
@@ -130,7 +130,7 @@ In this example, I have used the same log entry as above in the IIS setup. If yo
 
 The order will represent the column position in the IIS logs. With *Date* and *Time* from IIS Logs will combine into TimeGenerated in position 1, so to represent that I've added numbers to each column from the IIS Headers here:
 
-```
+```bash
 #Fields: (0)date (1)time (2)s-ip (3)cs-method (4)cs-uri-stem (5)cs-uri-query (6)s-port (7)cs-username (8)c-ip (9)cs-version (10)cs(User-Agent) (11)cs(Referer) (12)cs-host (13)sc-status (14)sc-substatus (15)sc-win32-status (16)time-taken (17)X-Forwarded-For
 ```
 
@@ -139,7 +139,8 @@ The order will represent the column position in the IIS logs. With *Date* and *T
 You need this as you need to set the Transformation Query once the Schema has been applied.
 
 Transformation Query:
-```powershell
+
+```kusto
 source | project d = split(RawData," ") | project TimeGenerated=todatetime(strcat(d[0], " ", d[1])), s_ip=tostring(d[2]), cs_method=tostring(d[3]), cs_uri_stem=tostring(d[4]), cs_uri_query=tostring(d[5]), s_port=toint(d[6]), cs_username=tostring(d[7]), c_ip=tostring(d[8]), cs_version=tostring(d[9]), cs_User_Agent=tostring(d[10]), cs_referer=tostring(d[11]), cs_host=tostring(d[12]), sc_status=toint(d[13]), sc_substatus=toint(d[14]), sc_win32_status=toint(d[15]), time_taken=toint(d[16]), x_forwarded_for=tostring(d[17])
 ```
 Edit the above, if yours is different, to "match" the IIS Log columns (number) to the Column in your Custom Log Table (name).
