@@ -5,7 +5,7 @@ categories: [Azure, Monitor, Logs]
 tags: [azure, x, forwarded, for, ingesting, iis, logs, monitor]     # TAG names should always be lowercase
 ---
 
-Something I see very often is the ability to see a Client's IP in IIS Logs. This scenario is especially interesting when you are using an Application Gateway in front of your IIS Web Servers (Iaas). 
+Something I see very often is the ability to see a Client's IP in IIS Logs. This scenario is especially interesting when you are using an Application Gateway in front of your IIS Web Servers (Iaas).
 
 My first question would be....do you even PaaS?
 
@@ -31,7 +31,7 @@ Head into IIS and open Logging at server level.
 > This is all easier if done at Server level, and you will see why later
 {: .prompt-info }
 
-Add the *X-Forwarded-For* field using the "Select Fields" button, under the Logging module: 
+Add the *X-Forwarded-For* field using the "Select Fields" button, under the Logging module:
 
 ![image](/assets/img/xff/img_1.png)
 
@@ -69,22 +69,24 @@ Once that is done, your logs will now look should look like this:
 
 ## Getting Custom Log Ingestion Set-Up
 
-There are a few things to do here and there are a few ways to get then done, but the methods below worked well for me, when using the Portal. 
+There are a few things to do here and there are a few ways to get then done, but the methods below worked well for me, when using the Portal.
 
 I have not yet attempted this via PowerShell, although it can be done that way too. Arguably its probably way easier/faster using PShell. If I get round to it, I will add that method/code here too.
 
-### Create Custom Table
+### Creating all the Resources
 
 To create the Custom Table correctly you will also need to provide Azure with
 
-1. A table schema. This is decided by IIS and the Standard and Custom log fields that are setup in IIS.
-2. A Transformation Query.
+1. [A table schema](#table-schema). This is decided by IIS and the Standard and Custom log fields that are setup in IIS.
+2. [A transformation query](#a-transformation-query). This is used to convert the data during ingestion from the IIS log table format and into the Custom Log Table schema.
+3. [Create The Custom Table](#create-the-custom-table).
+4. [Recreate the DCR](#recreate-the-dcr).
 
 #### Table Schema
 
-The easiest way to get your schema is to open the LATEST copy of your IIS Log file. 
+The easiest way to get your schema is to open the LATEST copy of your IIS Log file.
 
-> Default IIS log path = C:\inetpub\logs\LogFiles\W3SVC*  
+> Default IIS log path = C:\inetpub\logs\LogFiles\W3SVC*
 > {: .prompt-info }
 
 In the file, find the LATEST #Fields comment entry:
@@ -98,12 +100,12 @@ date time s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(Use
 ```
 We use these to create a JSON file, which is an example schema for Azure.
 
-In this example, I have used the same log entry as above in the IIS setup. If you have the same fieds selected you can copy the schema below, or at least use the below as a starting point. 
+In this example, I have used the same log entry as above in the IIS setup. If you have the same fieds selected you can copy the schema below, or at least use the below as a starting point.
 
-> The JSON values here dont matter, merely a reference but it's important that you get the order right. 
+> The JSON values here dont matter, merely a reference but it's important that you get the order right.
 > {: .prompt-info }
 
-Schema Example File:
+##### Schema Example File:
 ```json
 {
     "TimeGenerated": "2025-06-17T19:04:33Z",
@@ -132,11 +134,41 @@ The order will represent the column position in the IIS logs. With *Date* and *T
 
 #### Transformation Query
 
-You need this as you need to set the Transformation Query once the Schema has been applied. 
+You need this as you need to set the Transformation Query once the Schema has been applied.
 
 Transformation Query:
 ```powershell
 source | project d = split(RawData," ") | project TimeGenerated=todatetime(strcat(d[0], " ", d[1])), s_ip=tostring(d[2]), cs_method=tostring(d[3]), cs_uri_stem=tostring(d[4]), cs_uri_query=tostring(d[5]), s_port=toint(d[6]), cs_username=tostring(d[7]), c_ip=tostring(d[8]), cs_version=tostring(d[9]), cs_User_Agent=tostring(d[10]), cs_referer=tostring(d[11]), cs_host=tostring(d[12]), sc_status=toint(d[13]), sc_substatus=toint(d[14]), sc_win32_status=toint(d[15]), time_taken=toint(d[16]), x_forwarded_for=tostring(d[17])
 ```
+Edit the above, if yours is different, to "match" the IIS Log columns (number) to the Column in your Custom Log Table (name).
 
+For example:
 
+*cs_method=tostring(d[3])*
+- *cs_method* is the name of the column in your Custom Log Table that is being created.
+- *tostring(d[3])* denotes the Column number you assigned from IIS Logs Schema. In this case 3.
+
+Once you have those two things sorted, we can go ahead and create the table.
+
+#### Create The Custom Table
+
+1. Navigate to your Log Analytics Workspace. This is where the Custom Table will live.
+2. Under **settings**, choose **Tables**, and create a **new custom log (DCR Based)** table.
+3. Specify table name and description as required.
+4. We will create a new Data Collection Rule, initially. We will need to recreate it (In a bit) to get it all to work correctly.
+
+> Note: the Portal also requires an existing DCE (Data Collection Endpoint) here, so set one up but it's not used actually. When using PowerShell to do all this, you won't need a DCE here.
+> {: .prompt-info }
+
+![image](/assets/img/xff/img_4.png)
+
+5. Provide the [JSON file](#schema-example-file) you created ealier as the sample file.
+6. If the JSON file is correct, your schema should line up with the values as expected, as below. If you get any errors, it's going to be your syntax, so double check your syntax/format.
+
+![image](/assets/img/xff/img_5.png)
+
+7. If it all looks correct, then hit **next** and **create**. The table creation will take around 5-10mins to create so dont expect to see it straight away in the table list.
+
+![image](/assets/img/xff/img_6.png)
+
+#### Recreate the DCR
