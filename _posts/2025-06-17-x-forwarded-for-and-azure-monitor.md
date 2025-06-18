@@ -45,7 +45,7 @@ Add the *X-Forwarded-For* field using the "Select Fields" button, under the Logg
 AppGw supports and logs the *X-Forwarded-For* headers by default, but it includes the client port in the string too (note the IP:PORT value at the end):
 
 ```bash
-2025-06-18 11:01:28 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 https://www.host.com/ www.host.com 404 0 2 0 109.146.111.249:61335
+2025-06-18 11:01:28 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 - www.host.com 404 0 2 0 109.146.111.249:61335
 ```
 
 You can remove the mostly useless client port from the header using the rewrites config on your AppGw > Rewrites > Add Rewrite Set.
