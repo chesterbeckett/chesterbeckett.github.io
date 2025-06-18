@@ -75,7 +75,12 @@ I have not yet attempted this via PowerShell, although it can be done that way t
 
 ### Create Custom Table
 
-To create the Custom Table correctly you will also need to provide Azure with a table schema. This is decided by IIS and the Standard and Custom log fields that are setup in IIS. 
+To create the Custom Table correctly you will also need to provide Azure with
+
+1. A table schema. This is decided by IIS and the Standard and Custom log fields that are setup in IIS.
+2. A Transformation Query.
+
+#### Table Schema
 
 The easiest way to get your schema is to open the LATEST copy of your IIS Log file. 
 
@@ -124,6 +129,8 @@ The order will represent the column position in the IIS logs. With *Date* and *T
 ```
 #Fields: (0)date (1)time (2)s-ip (3)cs-method (4)cs-uri-stem (5)cs-uri-query (6)s-port (7)cs-username (8)c-ip (9)cs-version (10)cs(User-Agent) (11)cs(Referer) (12)cs-host (13)sc-status (14)sc-substatus (15)sc-win32-status (16)time-taken (17)X-Forwarded-For
 ```
+
+#### Transformation Query
 
 You need this as you need to set the Transformation Query once the Schema has been applied. 
 
