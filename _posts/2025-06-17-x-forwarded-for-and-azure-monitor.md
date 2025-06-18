@@ -147,6 +147,7 @@ Edit the above, if yours is different, to "match" the IIS Log columns (number) t
 For example:
 
 *cs_method=tostring(d[3])*
+
 - *cs_method* is the name of the column in your Custom Log Table that is being created.
 - *tostring(d[3])* denotes the Column number you assigned from IIS Logs Schema. In this case 3.
 
