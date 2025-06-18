@@ -78,7 +78,7 @@ I have not yet attempted this via PowerShell, although it can be done that way t
 To create the Custom Table correctly you will also need to provide Azure with
 
 1. [A table schema](#table-schema). This is decided by IIS and the Standard and Custom log fields that are setup in IIS.
-2. [A transformation query](#a-transformation-query). This is used to convert the data during ingestion from the IIS log table format and into the Custom Log Table schema.
+2. [A transformation query](#transformation-query). This is used to convert the data during ingestion from the IIS log table format and into the Custom Log Table schema.
 3. [Create The Custom Table](#create-the-custom-table).
 4. [Recreate the DCR](#recreate-the-dcr).
 
