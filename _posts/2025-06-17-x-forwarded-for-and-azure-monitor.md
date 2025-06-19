@@ -194,7 +194,7 @@ Once that has been deleted, give it a minute and then go ahead and create a new 
       - **Table name** - This needs to be the same as your table - **data_logs_CL**
       - **Record deliminator** - IIS Logs deliminates with the date/time, so we use that **TimeStamp**.
       - **TimeStamp Format** - **YYYY-MM-DD HH:MM:SS**
-      - **Transform** - This will be your (transformation query)[#transformation-query] we created earlier. It will need to be a single line, so ensure no returns are included.
+      - **Transform** - This will be your [A transformation query](#transformation-query) we created earlier. It will need to be a single line, so ensure no returns are included.
 
  ![image](/assets/img/xff/img_8.png)
 
@@ -211,5 +211,5 @@ There will be a scenario where you need to add another column after you have set
 
 You need to do a few things to get it set properly:
 
-- Update the source transformation query to include the new column. Remember the order that the column is in from your (log headers)[#schema-example-file].
+- Update the source transformation query to include the new column. Remember the order that the column is in, from your [log headers](#schema-example-file).
 - Update the Table Schema with the new column > LAW > Tables > Edit Table Schema. This update will take around 15mins to take effect, so be patient with the ingestion to see the result.
