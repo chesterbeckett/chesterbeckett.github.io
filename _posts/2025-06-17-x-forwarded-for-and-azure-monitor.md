@@ -20,11 +20,11 @@ And as you are in Azure, taking those IIS Logs and ingesting them BACK into Azur
 
 ## Pre-requisites
 
-There are a few things you are going to want to do on both your Appgw as well as your IIS Configs, before setting up the Custom Log ingesting.
+There are a few things you are going to want to do on both your AppGw as well as your IIS Configs, before setting up the Custom Log ingesting.
 
 ### IIS Setup
 
-You first need to set IIS to log the *X-Forwarded-For* header in IISlogs by adding a custom field.
+You first need to set IIS to log the *X-Forwarded-For* header in IIS logs by adding a custom field.
 
 Head into IIS and open Logging at server level.
 
@@ -37,19 +37,20 @@ Add the *X-Forwarded-For* field using the "Select Fields" button, under the Logg
 
  Don't forget to hit the Apply button (Top right) once you have added the field.
 
-> At this point you probably also want to set your standard fields. If you change them later its gets tricky to update the rest of the config. So take the time to ensure what fields you want to include in your logs and ingestion.
+> At this point you want to ensure you have set all your standard fields. If you change them later its gets tricky to update the rest of the config. So take the time to ensure what fields you want to include in your logs and ingestion.
 {: .prompt-info }
 
 ### Application Gateway
 
-AppGw supports and logs the *X-Forwarded-For* headers by default, but it includes the client port in the string too
+AppGw supports and logs the *X-Forwarded-For* headers by default, but it includes the client port in the string too.
 
-> note the **IP:PORT** value at the end:
+> Note the **IP:PORT** value at the end:
 {: .prompt-info }
 
 ```bash
 2025-06-18 11:01:28 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 - www.host.com 404 0 2 0 109.146.111.249:61335
 ```
+#### Rewrite
 
 You can remove the mostly useless client port from the header using the rewrites config on your AppGw > Rewrites > Add Rewrite Set.
 
@@ -64,26 +65,26 @@ You can remove the mostly useless client port from the header using the rewrites
 - **Common header:** X-Forwarded-For
 - **Set Header value to:** {var_add_x_forwarded_for_proxy}
 
-Once that is done, your logs will now look should look like this:
+Once that is done, your logs will now look should something like this:
 
 ```bash
 2025-06-18 11:01:28 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 - www.host.com 404 0 2 0 109.146.111.249
 ```
 
-## Getting Custom Log Ingestion Set-Up
+## Getting Custom Log Ingestion Set Up
 
 There are a few things to do here and there are a few ways to get then done, but the methods below worked well for me, when using the Portal.
 
-I have not yet attempted this via PowerShell, although it can be done that way too. Arguably its probably way easier/faster using PShell. If I get round to it, I will add that method/code here too.
+I have not yet attempted this via PowerShell, although it can be done that way too. Arguably its probably way easier/faster using PowerShell. If I get round to it, I will add that method/code here too.
 
 ### Creating all the Resources
 
-To create the Custom Table correctly you will also need to provide Azure with
+To create the Custom Table correctly you will need to do the following:
 
-1. [A table schema](#table-schema). This is decided by IIS and the Standard and Custom log fields that are setup in IIS.
-2. [A transformation query](#transformation-query). This is used to convert the data during ingestion from the IIS log table format and into the Custom Log Table schema.
-3. [Create The Custom Table](#create-the-custom-table).
-4. [Recreate the DCR](#recreate-the-dcr).
+1. [Create a table schema](#table-schema). This is decided by IIS and the Standard and Custom log fields that are setup in IIS.
+2. [Create a transformation query](#transformation-query). This is used to convert the data during ingestion from the IIS log table format and into the Custom Log Table schema.
+3. [Create The Custom Table](#create-the-custom-table). Tthis method seems strange but it works.
+4. [Recreate the DCR](#recreate-the-dcr). Due to some Portal randomness we have to recreate the DCR to get it to work correctly, after creating the table.
 
 #### Table Schema
 
@@ -96,14 +97,14 @@ In the file, find the LATEST #Fields comment entry:
 
 ![image](/assets/img/xff/img_3.png)
 
-Copy them out to VS Code/Editor of choice
+Copy them out to VS Code/Editor of choice:
 
 ```bash
 date time s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs-version cs(User-Agent) cs(Referer) cs-host sc-status sc-substatus sc-win32-status time-taken X-Forwarded-For
 ```
 We use these to create a JSON file, which is an example schema for Azure.
 
-In this example, I have used the same log entry as above in the IIS setup. If you have the same fieds selected you can copy the schema below, or at least use the below as a starting point.
+In this example, I have used the same log entry as above in the IIS setup. If you have the same fields selected you can copy the schema below, or at least use the below as a starting point.
 
 > The JSON values here dont matter, merely a reference but it's important that you get the order right.
 {: .prompt-info }
@@ -157,7 +158,7 @@ For example:
 
 Once you have those two things sorted, we can go ahead and create the table.
 
-#### Create The Custom Table
+### Create The Custom Table
 
 1. Navigate to your Log Analytics Workspace. This is where the Custom Table will live.
 2. Under **settings**, choose **Tables**, and create a **new custom log (DCR Based)** table.
@@ -169,14 +170,14 @@ Once you have those two things sorted, we can go ahead and create the table.
 
    ![image](/assets/img/xff/img_4.png)
 
-5. Provide the [JSON file](#schema-example-file) you created ealier as the sample file.
+5. Provide the [JSON file](#schema-example-file) you created earlier as the sample file.
 6. If the JSON file is correct, your schema should line up with the values as expected, as below. If you get any errors, it's going to be your syntax, so double check your syntax/format.
  ![image](/assets/img/xff/img_5.png)
 
 7. If it all looks correct, then hit **next** and **create**. The table creation will take around 5-10mins to create so dont expect to see it straight away in the table list.
  ![image](/assets/img/xff/img_6.png)
 
-#### Recreate the DCR
+### Recreate the DCR
 
 At this point we have a Custom Table and DCR created. But the DCR will not be working. I suspect this is because we havent yet been able to set the location of the source files, as this step is missing from all the work we have done so far. Most likely a Portal development issue that may be solved in time. I reckon PS wont have the same issue.
 
@@ -193,12 +194,12 @@ Once that has been deleted, give it a minute and then go ahead and create a new 
 3. **Collect and Deliver** - This is the important bit add your Data Source as ```Custom Text Logs``` - NOT IIS Logs.
   - **File pattern** - This is the source of your Logs, mine is default: ```C:\inetpub\logs\LogFiles\W3SVC*\u_ex*.log```
   - **Table name** - This needs to be the same as your table: ```data_logs_CL```
-  - **Record deliminator** - IIS Logs deliminates with the date/time: ```TimeStamp*```
-  - **TimeStamp Format** - ```YYYY-MM-DD HH:MM:SS```
-  - **Transform** - This will be your [A transformation query](#transformation-query) we created earlier. It will need to be a single line, so ensure no returns are included.
+  - **Record delimitator** - IIS Logs delimitates with the date/time: ```TimeStamp```
+  - **Time Stamp Format** - ```YYYY-MM-DD HH:MM:SS```
+  - **Transform** - This will be your [transformation query](#transformation-query) we created earlier. It will need to be a single line, so ensure no returns are included.
   ![image](/assets/img/xff/img_8.png)
 
-4. Destination - Choose the relavent Log Analytics Workspace to send the data to.
+4. Destination - Choose the relevant Log Analytics Workspace to send the data to.
 5. Create the DCR.
 
 At this point if you had no issues, data will start ingesting in about 10-15mins.
