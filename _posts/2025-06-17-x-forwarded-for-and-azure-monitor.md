@@ -163,16 +163,13 @@ Once you have those two things sorted, we can go ahead and create the table.
 
  > Note: the Portal also requires an existing DCE (Data Collection Endpoint) here, so set one up but it's not used actually. When using PowerShell to do all this, you won't need a DCE here.
 {: .prompt-info }
-
  ![image](/assets/img/xff/img_4.png)
 
 5. Provide the [JSON file](#schema-example-file) you created ealier as the sample file.
 6. If the JSON file is correct, your schema should line up with the values as expected, as below. If you get any errors, it's going to be your syntax, so double check your syntax/format.
-
  ![image](/assets/img/xff/img_5.png)
 
 7. If it all looks correct, then hit **next** and **create**. The table creation will take around 5-10mins to create so dont expect to see it straight away in the table list.
-
 ![image](/assets/img/xff/img_6.png)
 
 #### Recreate the DCR
