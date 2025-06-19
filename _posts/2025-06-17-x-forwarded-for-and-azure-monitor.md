@@ -160,9 +160,11 @@ Once you have those two things sorted, we can go ahead and create the table.
 2. Under **settings**, choose **Tables**, and create a **new custom log (DCR Based)** table.
 3. Specify table name and description as required.
 4. We will create a new Data Collection Rule, initially. We will need to recreate it (In a bit) to get it all to work correctly.
-  > Note: the Portal also requires an existing DCE (Data Collection Endpoint) here, so set one up but it's not used actually. When using PowerShell to do all this, you won't need a DCE here.
-  {: .prompt-info }
-  ![image](/assets/img/xff/img_4.png)
+
+   > Note: the Portal also requires an existing DCE (Data Collection Endpoint) here, so set one up but it's not used actually. When using PowerShell to do all this, you won't need a DCE here.
+   {: .prompt-info }
+
+   ![image](/assets/img/xff/img_4.png)
 
 5. Provide the [JSON file](#schema-example-file) you created ealier as the sample file.
 6. If the JSON file is correct, your schema should line up with the values as expected, as below. If you get any errors, it's going to be your syntax, so double check your syntax/format.
