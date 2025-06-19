@@ -195,7 +195,6 @@ Once that has been deleted, give it a minute and then go ahead and create a new 
   - **Record deliminator** - IIS Logs deliminates with the date/time: ```TimeStamp*```
   - **TimeStamp Format** - ```YYYY-MM-DD HH:MM:SS```
   - **Transform** - This will be your [A transformation query](#transformation-query) we created earlier. It will need to be a single line, so ensure no returns are included.
-
   ![image](/assets/img/xff/img_8.png)
 
 4. Destination - Choose the relavent Log Analytics Workspace to send the data to.
