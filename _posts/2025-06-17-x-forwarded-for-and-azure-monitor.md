@@ -190,7 +190,7 @@ Once that has been deleted, give it a minute and then go ahead and create a new 
  1. **Basics** - Give it a name (I used the same name), Sub, RSG etc.
  2. **Resources** - Associate your VM(s).
  3. **Collect and Deliver** - This is the important bit add your Data Source as **Custom Text Logs** - NOT IIS Logs.
-      - **File pattern** - This is the source of your Logs, mine is default - **C:\inetpub\logs\LogFiles\W3SVC*\u_ex*.log**.
+      - **File pattern** - This is the source of your Logs, mine is default - ```**C:\inetpub\logs\LogFiles\W3SVC*\u_ex*.log**```.
       - **Table name** - This needs to be the same as your table - **data_logs_CL**
       - **Record deliminator** - IIS Logs deliminates with the date/time, so we use that **TimeStamp**.
       - **TimeStamp Format** - **YYYY-MM-DD HH:MM:SS**
