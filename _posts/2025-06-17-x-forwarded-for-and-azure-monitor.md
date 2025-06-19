@@ -38,7 +38,7 @@ Add the *X-Forwarded-For* field using the "Select Fields" button, under the Logg
  Don't forget to hit the Apply button (Top right) once you have added the field.
 
 > At this point you probably also want to set your standard fields. If you change them later its gets tricky to update the rest of the config. So take the time to ensure what fields you want to include in your logs and ingestion.
-> {: .prompt-info }
+{: .prompt-info }
 
 ### Application Gateway
 
@@ -87,7 +87,7 @@ To create the Custom Table correctly you will also need to provide Azure with
 The easiest way to get your schema is to open the LATEST copy of your IIS Log file.
 
 > Default IIS log path = C:\inetpub\logs\LogFiles\W3SVC*
-> {: .prompt-info }
+{: .prompt-info }
 
 In the file, find the LATEST #Fields comment entry:
 
@@ -103,7 +103,7 @@ We use these to create a JSON file, which is an example schema for Azure.
 In this example, I have used the same log entry as above in the IIS setup. If you have the same fieds selected you can copy the schema below, or at least use the below as a starting point.
 
 > The JSON values here dont matter, merely a reference but it's important that you get the order right.
-> {: .prompt-info }
+{: .prompt-info }
 
 ##### Schema Example File:
 ```json
@@ -162,7 +162,7 @@ Once you have those two things sorted, we can go ahead and create the table.
 4. We will create a new Data Collection Rule, initially. We will need to recreate it (In a bit) to get it all to work correctly.
 
 > Note: the Portal also requires an existing DCE (Data Collection Endpoint) here, so set one up but it's not used actually. When using PowerShell to do all this, you won't need a DCE here.
-> {: .prompt-info }
+{: .prompt-info }
 
 ![image](/assets/img/xff/img_4.png)
 
@@ -177,8 +177,39 @@ Once you have those two things sorted, we can go ahead and create the table.
 
 #### Recreate the DCR
 
-At this point we have a Custom Table and DCR created. But the DCR will not be working. I suspect this is because we havent yet been able to set the location of the source files.
+At this point we have a Custom Table and DCR created. But the DCR will not be working. I suspect this is because we havent yet been able to set the location of the source files, as this step is missing from all the work we have done so far. Most likely a Portal development issue that may be solved in time. I reckon PS wont have the same issue.
 
-So we delete the DCR you created when creating the table. The table will remain, so don't be concerned about that.
+To get around this issue, I delete the DCR created earlier. The table will remain, so don't be concerned about that.
 
-..tbc
+In this example our DCR was called _data_logs_dcr_, so we delete that. You will probably need to remove the _resource association_ before being able to delete it, _DCR > Resources > Disassociate_.
+
+![image](/assets/img/xff/img_7.png)
+
+Once that has been deleted, give it a minute and then go ahead and create a new DCR:
+
+1. **Basics** - Give it a name (I used the same name), Sub, RSG etc.
+2. **Resources** - Associate your VM(s).
+3. **Collect and Deliver** - This is the important bit add your Data Source as **Custom Text Logs** - NOT IIS Logs.
+  >    - **File pattern** - This is the source of your Logs, mine is default - **C:\inetpub\logs\LogFiles\W3SVC*\u_ex*.log**
+  >    - **Table name** - This needs to be the same as your table - **data_logs_CL**
+  >    - **Record deliminator** - IIS Logs deliminates with the date/time, so we use that **TimeStamp**
+  >    - **TimeStamp Format** - **YYYY-MM-DD HH:MM:SS**
+  >    - **Transform** - This will be your (transformation query)[#transformation-query] we created earlier. It will need to be a single line, so ensure no returns are included.
+
+![image](/assets/img/xff/img_8.png)
+
+4. Destination - Choose the relavent Log Analytics Workspace to send the data to.
+5. Create the DCR.
+
+At this point if you had no issues, data will start ingesting in about 10-15mins.
+
+![image](/assets/img/xff/img_9.png)
+
+### Adding Columns After Setup
+
+There will be a scenario where you need to add another column after you have set all this up. This is entirely possible.
+
+You need to do a few things to get it set properly:
+
+- Update the source transformation query to include the new column. Remember the order that the column is in from your (log headers)[#schema-example-file].
+- Update the Table Schema with the new column > LAW > Tables > Edit Table Schema. This update will take around 15mins to take effect, so be patient with the ingestion to see the result.
