@@ -205,7 +205,7 @@ At this point if you had no issues, data will start ingesting in about 10-15mins
 
 ![image](/assets/img/xff/img_9.png)
 
-### Adding Columns After Setup
+## Adding Columns After Setup
 
 There will be a scenario where you need to add another column after you have set all this up. This is entirely possible.
 
