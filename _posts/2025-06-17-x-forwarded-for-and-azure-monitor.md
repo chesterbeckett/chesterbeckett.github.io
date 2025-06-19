@@ -187,19 +187,19 @@ In this example our DCR was called _data_logs_dcr_, so we delete that. You will 
 
 Once that has been deleted, give it a minute and then go ahead and create a new DCR:
 
-1. **Basics** - Give it a name (I used the same name), Sub, RSG etc.
-2. **Resources** - Associate your VM(s).
-3. **Collect and Deliver** - This is the important bit add your Data Source as **Custom Text Logs** - NOT IIS Logs.
-      - **File pattern** - This is the source of your Logs, mine is default - **C:\inetpub\logs\LogFiles\W3SVC*\u_ex*.log**
+ 1. **Basics** - Give it a name (I used the same name), Sub, RSG etc.
+ 2. **Resources** - Associate your VM(s).
+ 3. **Collect and Deliver** - This is the important bit add your Data Source as **Custom Text Logs** - NOT IIS Logs.
+      - **File pattern** - This is the source of your Logs, mine is default - **C:\inetpub\logs\LogFiles\W3SVC*\u_ex*.log**.
       - **Table name** - This needs to be the same as your table - **data_logs_CL**
-      - **Record deliminator** - IIS Logs deliminates with the date/time, so we use that **TimeStamp**
+      - **Record deliminator** - IIS Logs deliminates with the date/time, so we use that **TimeStamp**.
       - **TimeStamp Format** - **YYYY-MM-DD HH:MM:SS**
       - **Transform** - This will be your (transformation query)[#transformation-query] we created earlier. It will need to be a single line, so ensure no returns are included.
 
-![image](/assets/img/xff/img_8.png)
+ ![image](/assets/img/xff/img_8.png)
 
-4. Destination - Choose the relavent Log Analytics Workspace to send the data to.
-5. Create the DCR.
+ 4. Destination - Choose the relavent Log Analytics Workspace to send the data to.
+ 5. Create the DCR.
 
 At this point if you had no issues, data will start ingesting in about 10-15mins.
 
