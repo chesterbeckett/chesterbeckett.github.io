@@ -211,5 +211,10 @@ There will be a scenario where you need to add another column after you have set
 
 You need to do a few things to get it set properly:
 
-- Update the source transformation query to include the new column. Remember the order that the column is in, from your [log headers](#schema-example-file), if you get this incorrect, it will misalign the data in LAW.
+- Update the source transformation query, in the DCR, to include the new column. Remember the order that the column is in, from your [log headers](#schema-example-file), if you get this incorrect, it will misalign the data in LAW.
+
+![image](/assets/img/xff/img_10.png)
+
 - Update the Table Schema with the new column > LAW > Tables > Edit Table Schema. This update will take around 15mins to take effect, so be patient with the ingestion to see the result.
+
+![image](/assets/img/xff/img_11.png)
