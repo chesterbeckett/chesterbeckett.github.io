@@ -83,4 +83,4 @@ You don't have to make the dipping sauce, but it does go well with the wings!
  ![image](/assets/img/buffalowings/braai_buff_wings.jpg)
 
  From the oven (Ready to toss)
-  ![image](/assets/img/buffalowings/oven_buff_wings.jpg)
+ ![image](/assets/img/buffalowings/oven_buff_wings.jpg)
