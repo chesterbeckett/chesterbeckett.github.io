@@ -1,0 +1,138 @@
+---
+import { SITE } from '../config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { title = SITE.title, description = SITE.description, image } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImage = image ? new URL(image, Astro.site) : new URL(SITE.avatar, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/assets/img/favicons/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImage} />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href="/rss.xml" />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <slot />
+
+    <!-- GoatCounter Analytics -->
+    <script data-goatcounter="https://beckett.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-bg: #ffffff;
+    --color-text: #24292f;
+    --color-primary: #0969da;
+    --color-secondary: #6e7781;
+    --color-border: #d0d7de;
+    --color-code-bg: #f6f8fa;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #0d1117;
+      --color-text: #c9d1d9;
+      --color-primary: #58a6ff;
+      --color-secondary: #8b949e;
+      --color-border: #30363d;
+      --color-code-bg: #161b22;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  code {
+    background: var(--color-code-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  pre {
+    background: var(--color-code-bg);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1em 0;
+  }
+
+  pre code {
+    background: none;
+    padding: 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1em;
+    margin: 1em 0;
+    color: var(--color-secondary);
+  }
+</style>

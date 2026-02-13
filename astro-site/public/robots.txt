@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blog.beckett.life/sitemap-index.xml

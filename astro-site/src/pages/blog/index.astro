@@ -1,0 +1,129 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../config';
+
+const allPosts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title={`Blog | ${SITE.title}`}>
+  <div class="container">
+    <header class="page-header">
+      <a href="/" class="back-link">← Home</a>
+      <h1>All Posts</h1>
+      <p>{allPosts.length} articles</p>
+    </header>
+
+    <main>
+      <div class="posts-list">
+        {allPosts.map(post => (
+          <article class="post-card">
+            <a href={`/blog/${post.slug}`}>
+              <h2>{post.data.title}</h2>
+              <time datetime={post.data.date.toISOString()}>
+                {post.data.date.toLocaleDateString('en-GB', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+              {post.data.description && <p>{post.data.description}</p>}
+              {post.data.tags.length > 0 && (
+                <div class="tags">
+                  {post.data.tags.slice(0, 5).map(tag => (
+                    <span class="tag">#{tag}</span>
+                  ))}
+                </div>
+              )}
+            </a>
+          </article>
+        ))}
+      </div>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .page-header {
+    margin-bottom: 3rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--color-secondary);
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header p {
+    color: var(--color-secondary);
+  }
+
+  .posts-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .post-card a {
+    text-decoration: none;
+    color: var(--color-text);
+    display: block;
+  }
+
+  .post-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+  }
+
+  .post-card time {
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-card p {
+    color: var(--color-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+
+  .tag {
+    background: var(--color-code-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--color-secondary);
+  }
+</style>

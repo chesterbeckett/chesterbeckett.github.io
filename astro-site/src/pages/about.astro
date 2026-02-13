@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, SOCIAL } from '../config';
+---
+
+<BaseLayout title={`About | ${SITE.title}`}>
+  <div class="container">
+    <header class="page-header">
+      <a href="/" class="back-link">← Home</a>
+    </header>
+
+    <main class="about-content">
+      <div class="profile">
+        <img src={SITE.avatar} alt={SITE.author} class="profile-image" />
+        <h1>{SITE.author}</h1>
+        <p class="tagline">{SITE.tagline}</p>
+      </div>
+
+      <section>
+        <h2>About This Blog</h2>
+        <p>{SITE.description}</p>
+      </section>
+
+      <section>
+        <h2>Connect</h2>
+        <ul class="social-list">
+          <li>
+            <a href={`https://github.com/${SOCIAL.github}`} target="_blank" rel="noopener">
+              GitHub: @{SOCIAL.github}
+            </a>
+          </li>
+          <li>
+            <a href={`https://twitter.com/${SOCIAL.twitter}`} target="_blank" rel="noopener">
+              Twitter: @{SOCIAL.twitter}
+            </a>
+          </li>
+          <li>
+            <a href={SOCIAL.microsoftLearn} target="_blank" rel="noopener">
+              Microsoft Learn Profile
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--color-secondary);
+  }
+
+  .about-content {
+    line-height: 1.8;
+  }
+
+  .profile {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+  }
+
+  .profile h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  section p {
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .social-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .social-list li {
+    margin-bottom: 0.75rem;
+  }
+
+  .social-list a {
+    font-size: 1.1rem;
+  }
+</style>
