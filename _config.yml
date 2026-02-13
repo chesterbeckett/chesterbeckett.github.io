@@ -216,6 +216,7 @@ exclude:
   - LICENSE
   - "*.config.js"
   - package*.json
+  - astro-site
 
 jekyll-archives:
   enabled: [categories, tags]
