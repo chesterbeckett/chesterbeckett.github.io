@@ -1,32 +1,25 @@
-# Chester Beckett's Blog - Astro Version
+# Chester Beckett's Blog
 
 Modern, fast portfolio blog built with Astro and deployed on Azure Static Web Apps.
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Node.js 18+
-- npm or yarn
-
-### Local Development
+### Development
 
 ```bash
-cd astro-site
 npm install
 npm run dev
 ```
 
-Visit `http://localhost:4321`
+Visit http://localhost:4321
 
-### Build for Production
+### Build
 
 ```bash
 npm run build
 ```
 
-Output will be in `dist/` directory.
-
-### Preview Production Build
+### Preview
 
 ```bash
 npm run preview
@@ -36,61 +29,67 @@ npm run preview
 
 ```
 astro-site/
-├── public/              # Static assets (copied as-is)
+├── public/              # Static assets
+│   └── assets/         # Images, favicons
 ├── src/
-│   ├── config.ts        # Site configuration
+│   ├── config.ts       # Site configuration
 │   ├── content/
-│   │   ├── confiitle: Your Post Title
-date: 2024-12-10
-categories: [Azure, VMs]
-tags: [azure, tutorial]
-description: Brief description for SEO
+│   │   ├── config.ts   # Content schema
+│   │   └── blog/       # Blog posts (markdown)
+│   ├── layouts/
+│   │   ├── BaseLayout.astro
+│   │   └── BlogPost.astro
+│   └── pages/
+│       ├── index.astro
+│       ├── blog/
+│       ├── search.astro
+│       ├── about.astro
+│       └── rss.xml.ts
+└── scripts/            # Utility scripts
+```
+
+## ✍️ Adding Posts
+
+Create markdown files in `src/content/blog/`:
+
+```markdown
+---
+title: Your Post Title
+date: 2024-12-15
+categories: [Azure, Tutorial]
+tags: [azure, cloud]
+description: Brief description
 ---
 
-Your content here...
+Your content...
 ```
 
 ## 🎨 Features
 
-- ⚡️ Lightning fast with Astro
+- ⚡ Lightning fast with Astro
 - 🎯 SEO optimized
 - 📱 Fully responsive
-- 🌙 Dark mode support (system preference)
-- 📊 Analytics with GoatCounter
-- 🔍 RSS feed
-- 🗺️ Automatic sitemap
+- 🌙 Dark mode (system preference)
+- 📊 Analytics (GoatCounter)
+- 🔍 Search (Pagefind)
+- 📝 RSS feed
 - 🖼️ Image optimization
-- 📝 Markdown & MDX support
-- 🏷️ Tags and categories
-- 🔗 Social sharing
 
 ## 🌐 Deployment
 
-### Azure Static Web Apps
+Automatic deployment to Azure Static Web Apps via GitHub Actions.
 
-This site is configured for automatic deployment to Azure Static Web Apps via GitHub Actions.
-
-#### Setup Steps:
-
-1. Create Azure Static Web App resource
-2. Get deployment token from Azure Portal
-3. Add token as GitHub secret: `AZURE_STATIC_WEB_APPS_API_TOKEN`
-4. Push to main branch - automatic deployment!
-
-See `AZURE_DEPLOYMENT.md` for detailed instructions.
+- **Production**: Push to `main` branch
+- **Staging**: Create Pull Request (automatic preview URL)
 
 ## 📊 Analytics
 
-GoatCounter analytics is configured. Update the site ID in `src/config.ts` if needed.
+GoatCounter: https://beckett.goatcounter.com
 
 ## 🔧 Configuration
 
-Edit `src/config.ts` to update:
-- Site title and description
-- Author information
-- Social links
-- Analytics settings
+Edit `src/config.ts` to update site settings.
 
 ## 📝 License
 
-MIT License - see LICENSE file for details
+MIT License

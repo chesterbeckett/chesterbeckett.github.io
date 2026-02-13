@@ -1,5 +1,5 @@
 ---
-import { SITE } from '../config';
+import { SITE, SOCIAL, ANALYTICS } from '../config';
 
 interface Props {
   title?: string;
@@ -31,25 +31,24 @@ const socialImage = image ? new URL(image, Astro.site) : new URL(SITE.avatar, As
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:site_name" content={SITE.title} />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:creator" content={`@${SOCIAL.twitter}`} />
 
     <!-- RSS -->
     <link rel="alternate" type="application/rss+xml" title={SITE.title} href="/rss.xml" />
-
-    <!-- Sitemap -->
-    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body>
     <slot />
 
     <!-- GoatCounter Analytics -->
-    <script data-goatcounter="https://beckett.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script data-goatcounter={`https://${ANALYTICS.goatCounter}.goatcounter.com/count`} async src="//gc.zgo.at/count.js"></script>
   </body>
 </html>
 
