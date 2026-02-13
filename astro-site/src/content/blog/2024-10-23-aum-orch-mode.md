@@ -10,7 +10,6 @@ One of the prerequisites to patch VMs using Azure Update Manager is to set the o
 > Error
 > "code": "UnsupportedResourceOperation",
 > "message": "\"Patch orchestration mode is not set to AutomaticByPlatform",The prerequisites to patch your machine were not met. Please set the patchMode to AutomaticByPlatform and bypassPlatformChecksOnUserSchedule as true.
-{: .prompt-warning }
 
 ## Resolution
 

@@ -27,7 +27,6 @@ There are a number of scenarios that may apply given the VM type.
 > <a href="https://www.crowdstrike.com/blog/statement-on-falcon-content-update-for-windows-hosts/" target="_blank">Statement on Falcon Content Update for Windows Hosts</a>
 > - Channel file "C-00000291*.sys" with timestamp of 0527 UTC or later is the reverted (good) version.
 > - Channel file "C-00000291*.sys" with timestamp of 0409 UTC is the problematic version.
-{: .prompt-info }
 
 ### Option 1 - Restore VM from backup
 If the VM is used for relatively static workloads and has valid backups, its recommended that you restore from a backup from before 19:09 UTC on the 18th of July.
@@ -37,7 +36,6 @@ This option is not recommended for Domain Controllers or Database workloads.
 ### Option 2 - Repair OS Disk
 
 > Method Works for Gen V1 and V2 VMs, but V2 VMs require additional steps noted below.
-{: .prompt-warning }
 
 Pre-requisites for this method require:
 - Staging resources (VM/Disks) need to be created in the same Region and Availability Zone as the affected VM.

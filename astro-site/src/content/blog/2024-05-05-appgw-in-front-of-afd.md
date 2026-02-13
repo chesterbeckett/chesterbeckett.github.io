@@ -42,7 +42,6 @@ For the purposes of this document, I spun up an AppGW in UKS, using two listener
 >   - **Custom Health Probe:** *test.domain.com-https-probe*
 >   - **Backend Pool:** *test.domain.com-bepool*
 > This makes it much easier to navigate the config when setting up mulitple domains and/or troubleshooting configs.
-{: .prompt-tip }
 
 ## AppGW Prerequisites/Assumptions
 
@@ -69,7 +68,6 @@ For the purposes of this document I used the default setup for AppGW/ Keyvault i
 ![image](/assets/img/appgwinfrontofafd/img_2.png)
 
 >Optional: To further secure your config, <a href="https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=application-gateway&pivots=front-door-standard-premium#front-door-identifier" target="_blank">lock down acces to AppGW via a WAF Policy that allows the AFD ID</a>.
-{: .prompt-tip }
 
 ## Application Gateway Config
 
@@ -149,12 +147,10 @@ Microsoft's definition of an **Origin** is detailed in <a href="https://learn.mi
 > For this POC, the Origin is my AppGW. To reference the AppGW in the Origin, we need Origin Host Name (A DNS resolveable name) and Host Header:
 >   - **Origin Host Name:** The Origin Host Name comes into play when adding Origins into an Origin Group. This can be either a Public IP or a "Name" of the Origin Device. Note: The name must be resolvable from Public DNS. They are really looking for a public name that resolves to the resource (AppGW/AppService/etc) that is serving your app (test.domain.com), not your app.
 >   - **Host Header:** The Host Header is the URL of your Application that you are sending to AFD, in this case test.domain.com.
-{: .prompt-tip }
 
 ### Origin Host Name
 
 > Take note here, this section is detailed but vital to the success of your config
-{: .prompt-info }
 
 In an AFD scenario, this is the component that will trip most people up, because of the confusion in documentation/assumptions made. This I found is largely to do with the UI behaviour and the lack of precise information around the terms and methods being used by AFD/The Portal.
 

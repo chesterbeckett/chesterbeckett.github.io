@@ -30,7 +30,6 @@ With the config detailed here, we would just need ONE change, to the cert in the
 > Access to vaults takes place through two interfaces or planes..
 >   - **Management Plane (RBAC)** - The management plane is where you manage the Key Vault itself and it is the interface used to create and delete vaults. You can also read key vault properties and manage access policies. But you wont necassarily be able to read/write anything within the Key Vault.
 >   - **Data Plane (RBAC or Access Polcies)** - Access to Objects (Keys, Secrets, Certificactes) within the Key Vault, allows you to work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
-{: .prompt-info }
 
 ### Confirm if an HTTPS Listener is using an AppGW Installed Cert or a Keyvault referenced Certifcate
 
@@ -45,7 +44,6 @@ AppGW > Settings > Listeners > Listener TLS certificates
 >  - Azure sometimes complains silently about "#" and "$" characters in Certificate passwords, so avoid using those characters in your PFX passwords.
 >  - To upload a certificate to a Key Vault, it must have a password. If you download a Certificate from the Key Vault, it will not have a password.
 >  - As mentioned previously, ensure the SSL you are uploading includes the full chain of valid intermeddiate/CA certificates, or your certificate will not function correctly.
-{: .prompt-tip }
 
 ### For an Existing/Renewed Certificate.
 
@@ -61,7 +59,6 @@ This is how to add new SSL certificates for domains that already have SSLs in yo
 > If you want to trigger the AppGW to pick up the renewed certificate immediately, for example if the existing SSL has already expired,  then you will need to make a change on the AppGW to trigger a config refresh.
 > Such as changing the polling period on a custom health probe, or response code. Something small that wont impact production but will trigger the AppGW to pull the latest SSL from the Key Vault.
 > There is no downtime when renewing existing SSL certificates.
-{: .prompt-tip }
 
 ### For Completely New Certificate.
 
@@ -93,7 +90,6 @@ This will be the identity which the AppGW will use to access the Keyvault to ret
 When you create the KV via the Portal, it suggests that RBAC is the preferred method for managing data plane access. I dont see any noteable advantages of using RBAC over Access Policies, when integrating AppGws to KVs. The access methods/roles are slightly more complicated though, when using RBAC, and something you need to be aware of.
 
 > Specifying Azure Key Vault certificates that are subject to the role-based access control permission model is not supported via the portal.
-{: .prompt-info }
 
 This means that adding a New Certifcate Object to the AppGW, that has RBAC access method enabled, is not supported via the portal. You need to use code to add it. Even though the Portal still has the option, it will fail on "_The Managed ID doesnt have access to the KV_" type error when trying to select the cert.
 
@@ -163,7 +159,6 @@ Follow this process when you are configuring a new HTTPS Listener on your AppGw.
 > To switch an existing Listener from AppGW Certificate to Key Vault Certificate
 > You can use the same method above to update an existing listener that previously had the certificate uploaded manually to the AppGW, by selecting "Renew or Edit Selected Certificate" option on the listener config.
 > Or you can choose the KV certificate which will appear in the drop down if it was previously added to another Listener previously. This is where logical naming conventions come into play, so that you easily select the correct certificate from the list.
-{: .prompt-tip }
 
 # Conclusion
 

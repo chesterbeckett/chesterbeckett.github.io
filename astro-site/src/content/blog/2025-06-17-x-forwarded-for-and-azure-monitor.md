@@ -16,7 +16,6 @@ The challenge here is getting that Client IP (c-ip) through the AppGw and into t
 And as you are in Azure, taking those IIS Logs and ingesting them BACK into Azure Monitor for easier querying......good bye LogParser (And good riddance)!
 
 > While Azure Monitor supports <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/vm/data-collection-iis" target="_blank">ingesting IIS Logs</a> by default, <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/vm/data-collection-iis#configure-collection-of-iis-logs-on-client" target="_blank">it doesnt support ingesting the X-Forwarded-For header</a>, sounds silly right!? You need to use custom log ingestion, read on!
-{: .prompt-info }
 
 ## Pre-requisites
 
@@ -29,7 +28,6 @@ You first need to set IIS to log the *X-Forwarded-For* header in IIS logs by add
 Head into IIS and open Logging at server level.
 
 > This is all easier if done at Server level, and you will see why later
-{: .prompt-info }
 
 Add the *X-Forwarded-For* field using the "Select Fields" button, under the Logging module:
 
@@ -38,14 +36,12 @@ Add the *X-Forwarded-For* field using the "Select Fields" button, under the Logg
  Don't forget to hit the Apply button (Top right) once you have added the field.
 
 > At this point you want to ensure you have set all your standard fields. If you change them later its gets tricky to update the rest of the config. So take the time to ensure what fields you want to include in your logs and ingestion.
-{: .prompt-info }
 
 ### Application Gateway
 
 AppGw supports and logs the *X-Forwarded-For* headers by default, but it includes the client port in the string too.
 
 > Note the **IP:PORT** value at the end:
-{: .prompt-info }
 
 ```bash
 2025-06-18 11:01:28 10.0.0.4 GET /favicon.ico - 443 - 10.0.2.5 HTTP/1.1 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/137.0.0.0+Safari/537.36+Edg/137.0.0.0 - www.host.com 404 0 2 0 109.146.111.249:61335
@@ -91,7 +87,6 @@ To create the Custom Table correctly you will need to do the following:
 The easiest way to get your schema is to open the LATEST copy of your IIS Log file.
 
 > Default IIS log path = C:\inetpub\logs\LogFiles\W3SVC*
-{: .prompt-info }
 
 In the file, find the LATEST #Fields comment entry:
 
@@ -107,7 +102,6 @@ We use these to create a JSON file, which is an example schema for Azure.
 In this example, I have used the same log entry as above in the IIS setup. If you have the same fields selected you can copy the schema below, or at least use the below as a starting point.
 
 > The JSON values here dont matter, merely a reference but it's important that you get the order right.
-{: .prompt-info }
 
 ##### Schema Example File:
 ```json
@@ -166,7 +160,6 @@ Once you have those two things sorted, we can go ahead and create the table.
 4. We will create a new Data Collection Rule, initially. We will need to recreate it (In a bit) to get it all to work correctly.
 
    > Note: the Portal also requires an existing DCE (Data Collection Endpoint) here, so set one up but it's not used actually. When using PowerShell to do all this, you won't need a DCE here.
-   {: .prompt-info }
 
    ![image](/assets/img/xff/img_4.png)
 

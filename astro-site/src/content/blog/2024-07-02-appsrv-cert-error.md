@@ -10,7 +10,6 @@ tags: [azure, webapp, appservice, certs, error, pfx, ssl, certificate]
 Trying to upload a certificate to your Web App fails, with the following error:
 
 > "Error adding private key certificate: At least one Certificate is not valid (Certificate failed validation because it could not be loaded)"
-{: .prompt-warning }
 
  ![image](/assets/img/appsrvcerterror/img_1.png)
 
@@ -31,7 +30,6 @@ If you choose to upload or import a private certificate to a Web App, your certi
 > After you add a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system combination, internally called a webspace. That way, the certificate is accessible to other apps in the same resource group, region, and OS combination. Private certificates uploaded or imported to App Service are shared with App Services in the same deployment unit.
 >
 > You can add up to 1000 private certificates per webspace.
-{: .prompt-info }
 
 - <a href="https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate?tabs=apex#private-certificate-requirements" target="_blank">Microsoft Reference - Private certificate requirements</a>
 
@@ -41,7 +39,6 @@ Easy way to fix this is to re-encrypt the certificate, using Powershell on a Win
 
 > - You can import the Certificate into Windows with or without a password, but when you export it, it will need a password to upload to Azure.
 > - Do not include the following special characters in your password, I have seen them cause issues with Azure before '$' '&' '#' '%'
-{: .prompt-tip }
 
 ### Import the certificate into Windows
 

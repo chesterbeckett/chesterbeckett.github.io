@@ -32,7 +32,6 @@ Form the Web App, under _Diagnose and solve problems_, we have the **Advanced Ap
 > Advanced application restart lets you restart individual instances of your application as well as intelligently restarting multiple instances. The restart timer lets you specify the time interval in seconds used between restarting individual instances of the app reducing the effect of cold starts. NOTE: If an instance of your app is unresponsive, you may not see it in the list here.
 >
 > To mitigate, you may need to do a full restart of your app.  To prevent this from occuring in the future, we recommend setting up Health Check.
-{: .prompt-info }
 
 ![image](/assets/img/webapprestart/img_2.png)
 
@@ -80,6 +79,5 @@ If you want automatic Web App Instance restarts, check out <a href="https://lear
 > Health check doesn't follow 302 redirects.
 > At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
 > If your health check is giving the status Waiting for health check response then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have HTTPS Only disabled.
-{: .prompt-info }
 
 <a href="https://learn.microsoft.com/en-us/azure/app-service/monitor-instances-health-check?tabs=dotnet#what-app-service-does-with-health-checks" target="_blank">Microsoft Reference - What App Service (Web App) does with Health checks</a>

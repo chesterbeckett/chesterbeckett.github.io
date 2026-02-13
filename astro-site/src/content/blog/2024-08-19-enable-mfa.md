@@ -8,12 +8,10 @@ tags: [azure, entra, id, mfa, security]
 Starting from the 15th of October 2024, Microsoft will be enforcing multifactor authentication (MFA) to sign into the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, Microsoft <a href="https://entra.microsoft.com/" target="_blank">Entra admin center</a>, and <a href="https://intune.microsoft.com/" target="_blank">Intune admin center</a>.
 
 > To ensure you/your users maintain access, you’ll need to enable MFA by the **15th of October 2024**.
-{: .prompt-warning }
 
 Microsoft is making these preconfigured security settings available to everyone, because we all know managing security can be difficult. Based on our learnings more than 99.9% of those common identity-related attacks are stopped by using multifactor authentication and blocking legacy authentication.
 
 > Microsoft's goal is to ensure that all organizations have at least a basic level of security enabled at ***no extra cost***.
-{: .prompt-tip }
 
 ## Enforcement Phases
 
