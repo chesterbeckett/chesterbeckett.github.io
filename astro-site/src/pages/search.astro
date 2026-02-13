@@ -80,8 +80,7 @@ import { SITE } from '../config';
   }
 
   :global(.pagefind-ui__result-excerpt) {
-    color: var(--color-secondary);
-    margin-top: 0.5rem;
+    display: none;
   }
 
   :global(.pagefind-ui__message) {
@@ -96,9 +95,9 @@ import { SITE } from '../config';
 
   new PagefindUI({
     element: '#search',
-    showSubResults: true,
+    showSubResults: false,
     showImages: false,
-    excerptLength: 30
+    excerptLength: 0
   });
 </script>
 
