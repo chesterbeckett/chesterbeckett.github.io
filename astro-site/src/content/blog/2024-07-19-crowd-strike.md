@@ -1,14 +1,8 @@
 ---
-title: undefined
-date: undefined
-
-
----
----
 title: CrowdStrike Azure VM Mitigation
-date: 2024-07-19 10:42:05 +/-TTTT
+date: 2024-07-19
 categories: [Azure, VMs]
-tags: [azure, vms, crowdstrike, bsod, loop, boot, restart, c00000291, az, vm, repair] # TAG names should always be lowercase
+tags: [azure, vms, crowdstrike, bsod, loop, boot, restart, c00000291, az, vm, repair]
 ---
 
 ## Issue

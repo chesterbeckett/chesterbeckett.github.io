@@ -1,14 +1,8 @@
 ---
-title: undefined
-date: undefined
-
-
----
----
 title: Reporting the Malicious Use of Microsoft Azure
-date: 2024-10-08 11:30:05 +/-TTTT
+date: 2024-10-08
 categories: [Azure, Abuse, Report]
-tags: [azure, report, abuse, malicious, msrc, security, attack] # TAG names should always be lowercase
+tags: [azure, report, abuse, malicious, msrc, security, attack]
 ---
 
 To report the malicious use of Microsoft Azure, you can use the Microsoft security reporting portal.

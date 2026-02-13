@@ -1,14 +1,8 @@
 ---
-title: undefined
-date: undefined
-
-
----
----
 title: Ingesting X-Forwarded-For Header into Azure Monitor
-date: 2025-06-17 12:06:05 +/-TTTT
+date: 2025-06-17
 categories: [Azure, Monitor, Logs]
-tags: [azure, x, forwarded, for, ingesting, iis, logs, monitor]     # TAG names should always be lowercase
+tags: [azure, x, forwarded, for, ingesting, iis, logs, monitor]
 ---
 
 Something I see very often is the ability to see a Client's IP in IIS Logs. This scenario is especially interesting when you are using an Application Gateway in front of your IIS Web Servers (Iaas).

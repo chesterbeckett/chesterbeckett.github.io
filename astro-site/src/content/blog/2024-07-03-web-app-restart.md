@@ -1,14 +1,8 @@
 ---
-title: undefined
-date: undefined
-
-
----
----
 title: Restarting Web App Instances
-date: 2024-07-03 20:42:05 +/-TTTT
+date: 2024-07-03
 categories: [Azure, Web App]
-tags: [azure, web app, app service, instance, restart, health, check]     # TAG names should always be lowercase
+tags: [azure, web app, app service, instance, restart, health, check]
 ---
 
 There are a few ways to seemingly "restart" a Web App (Windows) in Azure. Not all of them are equal, or necassarily doing what you think they are doing. In this post, I detail out some of the more common methods.

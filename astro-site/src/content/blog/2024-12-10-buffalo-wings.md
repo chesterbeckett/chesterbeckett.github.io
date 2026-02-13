@@ -1,14 +1,8 @@
 ---
-title: undefined
-date: undefined
-
-
----
----
 title: Buffalo Wings
-date: 2024-12-10 09:12:05 +/-TTTT
+date: 2024-12-10
 categories: [Kitchen, Chicken, Wings]
-tags: [kitchen, chicken, wings, buffalo]     # TAG names should always be lowercase
+tags: [kitchen, chicken, wings, buffalo]
 ---
 
 This one's for Cian.

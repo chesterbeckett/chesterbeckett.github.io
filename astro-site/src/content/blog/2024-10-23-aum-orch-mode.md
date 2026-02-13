@@ -1,14 +1,8 @@
 ---
-title: undefined
-date: undefined
-
-
----
----
 title: Azure Update Manager - Set Patch Orchestration Mode to AutomaticByPlatform
-date: 2024-10-23 11:06:05 +/-TTTT
+date: 2024-10-23
 categories: [Azure, Update Manager]
-tags: [azure, aum, update, manager, prerequisites, automaticbyplatform] # TAG names should always be lowercase
+tags: [azure, aum, update, manager, prerequisites, automaticbyplatform]
 ---
 
 One of the prerequisites to patch VMs using Azure Update Manager is to set the orchestration mode to "AutomaticByPlatform". If this is not set, when you deploy a new Update Schedule, you may receive the following error in your deploytment:

@@ -1,14 +1,8 @@
 ---
-title: undefined
-date: undefined
-
-
----
----
 title: Chicken Liver Paté
-date: 2024-06-12 10:48:05 +/-TTTT
+date: 2024-06-12
 categories: [Kitchen, Chicken, Paté]
-tags: [kitchen, chicken, liver, pate, paté]     # TAG names should always be lowercase
+tags: [kitchen, chicken, liver, pate, paté]
 ---
 
 I got this recipe from a good friend. It's a simple recipe that can quite possibly change your views on paté forever. Great for Christmas time!

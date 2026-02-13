@@ -1,14 +1,8 @@
 ---
-title: undefined
-date: undefined
-
-
----
----
 title: Integrate an Application Gateway with Azure Key Vault
-date: 2024-03-27 10:00:05 +/-TTTT
+date: 2024-03-27
 categories: [Azure, Key Vault]
-tags: [azure, kv, key, vault, integrate]     # TAG names should always be lowercase
+tags: [azure, kv, key, vault, integrate]
 ---
 
 ## Overview

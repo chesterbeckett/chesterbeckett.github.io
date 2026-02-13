@@ -114,11 +114,14 @@ function convertPost(filename) {
 
   const { frontMatter, body } = extractFrontMatter(content);
 
-  // Convert date format
+  // Convert date format - extract just YYYY-MM-DD
   let date = frontMatter.date;
-  if (date && date.includes('+/-TTTT')) {
-    // Extract just the date part
-    date = date.split(' ')[0];
+  if (date) {
+    // Extract just the date part (YYYY-MM-DD)
+    const dateMatch = date.match(/(\d{4}-\d{2}-\d{2})/);
+    if (dateMatch) {
+      date = dateMatch[1];
+    }
   }
 
   // Build new front matter

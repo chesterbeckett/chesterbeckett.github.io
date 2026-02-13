@@ -1,14 +1,8 @@
 ---
-title: undefined
-date: undefined
-
-
----
----
 title: Using Azure Front Door in front of Application Gateways
-date: 2024-05-05 14:12:05 +/-TTTT
+date: 2024-05-05
 categories: [Azure, Front Door]
-tags: [azure, front, door, afd, appgw, application, gateway, frontdoor]     # TAG names should always be lowercase
+tags: [azure, front, door, afd, appgw, application, gateway, frontdoor]
 ---
 
 As you may know, Azure does support putting Azure Front Door (AFD) in front of Application Gateways (AppGws). The config can get a little awry if you are not aware of the various components of the solution and specifically within AFD. While there is documentation on <a href="https://learn.microsoft.com" target="_blank">https://learn.microsoft.com</a>, it can be quite high level and ambiguous.
